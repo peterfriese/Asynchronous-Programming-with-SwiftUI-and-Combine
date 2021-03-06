@@ -20,6 +20,7 @@ struct BookDetailsView: View {
         .shadow(radius: 10)
         .padding()
       Label(book.author, systemImage: "person.crop.rectangle")
+      Label("\(book.isbn) pages", systemImage: "number")
       Label("\(book.pages) pages", systemImage: "book")
       Toggle("Read", isOn: .constant(true))
       Button(action: { showEditBookView.toggle() }) {

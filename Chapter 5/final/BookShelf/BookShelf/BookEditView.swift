@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BookEditView: View {
   @Binding var book: Book
+  @State var isISBNValid = false
   
   var body: some View {
     Form {
@@ -19,11 +20,23 @@ struct BookEditView: View {
         .shadow(radius: 10)
         .padding()
       TextField("Author", text: $book.author)
+      VStack(alignment: .leading) {
+        if !isISBNValid {
+          Text("ISBN is invalid")
+            .font(.caption)
+            .foregroundColor(.red)
+        }
+        TextField("ISBN", text: $book.isbn)
+      }
       TextField("Pages", value: $book.pages, formatter: NumberFormatter())
       Toggle("Read", isOn: .constant(true))
     }
+    .onChange(of: book.isbn) { value in
+      self.isISBNValid = checkISBN(isbn: book.isbn)
+    }
     .navigationTitle(book.title)
   }
+  
 }
 
 struct BookEditView_Previews: PreviewProvider {
