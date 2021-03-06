@@ -7,34 +7,42 @@
 
 import SwiftUI
 
-struct BookEditView: View {
+class BookEditViewModel: ObservableObject {
   @Binding var book: Book
-  @State var isISBNValid = false
+  
+  var isISBNValid: Bool {
+    checkISBN(isbn: book.isbn)
+  }
+  
+  init(book: Binding<Book>) {
+    self._book = book
+  }
+}
+
+struct BookEditView: View {
+  @ObservedObject var bookEditViewModel: BookEditViewModel
   
   var body: some View {
     Form {
-      TextField("Book title", text: $book.title)
-      Image(book.largeCoverImageName)
+      TextField("Book title", text: $bookEditViewModel.book.title)
+      Image(bookEditViewModel.book.largeCoverImageName)
         .resizable()
         .scaledToFit()
         .shadow(radius: 10)
         .padding()
-      TextField("Author", text: $book.author)
+      TextField("Author", text: $bookEditViewModel.book.author)
       VStack(alignment: .leading) {
-        if !isISBNValid {
+        if !bookEditViewModel.isISBNValid {
           Text("ISBN is invalid")
             .font(.caption)
             .foregroundColor(.red)
         }
-        TextField("ISBN", text: $book.isbn)
+        TextField("ISBN", text: $bookEditViewModel.book.isbn)
       }
-      TextField("Pages", value: $book.pages, formatter: NumberFormatter())
+      TextField("Pages", value: $bookEditViewModel.book.pages, formatter: NumberFormatter())
       Toggle("Read", isOn: .constant(true))
     }
-    .onChange(of: book.isbn) { value in
-      self.isISBNValid = checkISBN(isbn: book.isbn)
-    }
-    .navigationTitle(book.title)
+    .navigationTitle(bookEditViewModel.book.title)
   }
   
 }
@@ -42,7 +50,7 @@ struct BookEditView: View {
 struct BookEditView_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
-      BookEditView(book: .constant(Book.samples[0]))
+      BookEditView(bookEditViewModel: BookEditViewModel(book: .constant(Book.samples[0])))
     }
     .preferredColorScheme(.dark)
   }
