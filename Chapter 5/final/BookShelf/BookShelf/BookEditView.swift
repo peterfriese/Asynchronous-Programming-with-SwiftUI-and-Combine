@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BookEditView: View {
   @Binding var book: Book
+  
   var body: some View {
     Form {
       TextField("Book title", text: $book.title)
@@ -28,7 +29,7 @@ struct BookEditView: View {
 struct BookEditView_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
-      BookEditView(book: .constant(sampleBooks[0]))
+      BookEditView(book: .constant(Book.samples[0]))
     }
     .preferredColorScheme(.dark)
   }

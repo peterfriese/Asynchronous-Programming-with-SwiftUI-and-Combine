@@ -7,12 +7,8 @@
 
 import SwiftUI
 
-class BooksViewModel: ObservableObject {
-  @Published var books: [Book] = sampleBooks
-}
-
 struct BooksListView: View {
-  @StateObject var booksViewModel = BooksViewModel()
+  @ObservedObject var booksViewModel: BooksViewModel
   
   var body: some View {
     List {
@@ -62,15 +58,17 @@ struct BooksListView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+  static let booksViewModel = BooksViewModel()
+  
   static var previews: some View {
     Group {
       NavigationView {
-        BooksListView()
+        BooksListView(booksViewModel: booksViewModel)
           .navigationTitle("Books")
           .preferredColorScheme(.dark)
       }
       NavigationView {
-        BooksListView()
+        BooksListView(booksViewModel: booksViewModel)
           .navigationTitle("Books")
           .preferredColorScheme(.light)
       }

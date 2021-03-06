@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BookRowView: View {
   @Binding var book: Book
+  
   var body: some View {
     NavigationLink(destination: BookDetailsView(book: $book)) {
       HStack(alignment: .top) {
@@ -32,7 +33,7 @@ struct BookRowView: View {
 
 struct BookRowView_Previews: PreviewProvider {
   static var previews: some View {
-    BookRowView(book: .constant(sampleBooks[0]))
+    BookRowView(book: .constant(Book.samples[0]))
       .previewLayout(.sizeThatFits)
   }
 }
