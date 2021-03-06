@@ -57,7 +57,7 @@ struct BooksListView: View {
   }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct BooksListView_Previews: PreviewProvider {
   static let booksViewModel = BooksViewModel()
   
   static var previews: some View {
