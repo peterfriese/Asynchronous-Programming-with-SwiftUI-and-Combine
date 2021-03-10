@@ -15,22 +15,19 @@ class BookEditViewModel: ObservableObject {
     self.book = book
     
     self.$book
-      .map { book in
-        return checkISBN(isbn: book.isbn)
-      }
+      .map { checkISBN(isbn: $0.isbn) }
       .assign(to: &$isISBNValid)
   }
 }
 
 struct BookEditView: View {
+  @Binding var book: Book
   @ObservedObject var bookEditViewModel: BookEditViewModel
   @Environment(\.presentationMode) var presentationMode
   
-  private var commit: ((Book) -> Void)?
-  
-  init(book: Book, commit: ((Book) -> Void)? = nil) {
-    self.bookEditViewModel = BookEditViewModel(book: book)
-    self.commit = commit
+  init(book: Binding<Book>) {
+    self._book = book
+    self.bookEditViewModel = BookEditViewModel(book: book.wrappedValue)
   }
   
   func cancel() {
@@ -38,9 +35,7 @@ struct BookEditView: View {
   }
   
   func save() {
-    if let commit = commit {
-      commit(bookEditViewModel.book)
-    }
+    self.book = bookEditViewModel.book
     presentationMode.wrappedValue.dismiss()
   }
   
@@ -82,7 +77,7 @@ struct BookEditView: View {
 struct BookEditView_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
-      BookEditView(book: Book.samples[0])
+      BookEditView(book: .constant(Book.samples[0]))
     }
     .preferredColorScheme(.dark)
   }

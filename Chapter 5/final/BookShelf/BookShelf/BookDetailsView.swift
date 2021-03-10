@@ -28,9 +28,7 @@ struct BookDetailsView: View {
       }
     }
     .sheet(isPresented: $showEditBookView) {
-      BookEditView(book: self.book) { book in
-        self.book = book
-      }
+      BookEditView(book: $book)
     }
     .navigationTitle(book.title)
   }
