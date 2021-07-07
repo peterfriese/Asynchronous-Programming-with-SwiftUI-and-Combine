@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88813F6426958BCA00C1801F /* SearchableBookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88813F6326958BCA00C1801F /* SearchableBookListView.swift */; };
 		88C52C52268C827C00A74EFF /* ListsExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C52C51268C827C00A74EFF /* ListsExampleApp.swift */; };
 		88C52C54268C827C00A74EFF /* StaticListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C52C53268C827C00A74EFF /* StaticListView.swift */; };
 		88C52C56268C827D00A74EFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88C52C55268C827D00A74EFF /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		88813F6326958BCA00C1801F /* SearchableBookListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableBookListView.swift; sourceTree = "<group>"; };
 		88C52C4E268C827C00A74EFF /* ListsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88C52C51268C827C00A74EFF /* ListsExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsExampleApp.swift; sourceTree = "<group>"; };
 		88C52C53268C827C00A74EFF /* StaticListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticListView.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			children = (
 				88FED194268DBBC300E6157D /* Book.swift */,
 				88FED192268DBB9300E6157D /* BooksListView.swift */,
+				88813F6326958BCA00C1801F /* SearchableBookListView.swift */,
 			);
 			path = "Dynamic Lists";
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				88C52C54268C827C00A74EFF /* StaticListView.swift in Sources */,
 				88FED195268DBBC300E6157D /* Book.swift in Sources */,
 				88C52C60268C835300A74EFF /* StaticListView2.swift in Sources */,
+				88813F6426958BCA00C1801F /* SearchableBookListView.swift in Sources */,
 				88C52C52268C827C00A74EFF /* ListsExampleApp.swift in Sources */,
 				88C52C62268C892D00A74EFF /* StaticListWithCustomRowView.swift in Sources */,
 			);

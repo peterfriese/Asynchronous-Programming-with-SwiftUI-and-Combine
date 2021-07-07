@@ -29,7 +29,9 @@ struct MenuScreen: View {
           NavigationLink(destination: BooksListViewDemo()) {
             Label("Books List View", systemImage: "5.square")
           }
-          Label("Dummy", systemImage: "6.square")
+          NavigationLink(destination: SearchableBooksListViewDemo()) {
+            Label("Searchable Books List View", systemImage: "6.square")
+          }
           Label("Dummy", systemImage: "7.square")
           Label("Dummy", systemImage: "8.square")
           Label("Dummy", systemImage: "9.square")
