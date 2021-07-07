@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		88813F6426958BCA00C1801F /* SearchableBookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88813F6326958BCA00C1801F /* SearchableBookListView.swift */; };
+		88813F6426958BCA00C1801F /* SearchableBooksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88813F6326958BCA00C1801F /* SearchableBooksListView.swift */; };
+		88813F6626959AC600C1801F /* RefreshableBooksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88813F6526959AC600C1801F /* RefreshableBooksListView.swift */; };
+		88813F6926959CB200C1801F /* LoremSwiftum in Frameworks */ = {isa = PBXBuildFile; productRef = 88813F6826959CB200C1801F /* LoremSwiftum */; };
 		88C52C52268C827C00A74EFF /* ListsExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C52C51268C827C00A74EFF /* ListsExampleApp.swift */; };
 		88C52C54268C827C00A74EFF /* StaticListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C52C53268C827C00A74EFF /* StaticListView.swift */; };
 		88C52C56268C827D00A74EFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88C52C55268C827D00A74EFF /* Assets.xcassets */; };
@@ -22,7 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		88813F6326958BCA00C1801F /* SearchableBookListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableBookListView.swift; sourceTree = "<group>"; };
+		88813F6326958BCA00C1801F /* SearchableBooksListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableBooksListView.swift; sourceTree = "<group>"; };
+		88813F6526959AC600C1801F /* RefreshableBooksListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableBooksListView.swift; sourceTree = "<group>"; };
 		88C52C4E268C827C00A74EFF /* ListsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88C52C51268C827C00A74EFF /* ListsExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsExampleApp.swift; sourceTree = "<group>"; };
 		88C52C53268C827C00A74EFF /* StaticListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticListView.swift; sourceTree = "<group>"; };
@@ -42,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88813F6926959CB200C1801F /* LoremSwiftum in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,7 +122,8 @@
 			children = (
 				88FED194268DBBC300E6157D /* Book.swift */,
 				88FED192268DBB9300E6157D /* BooksListView.swift */,
-				88813F6326958BCA00C1801F /* SearchableBookListView.swift */,
+				88813F6326958BCA00C1801F /* SearchableBooksListView.swift */,
+				88813F6526959AC600C1801F /* RefreshableBooksListView.swift */,
 			);
 			path = "Dynamic Lists";
 			sourceTree = "<group>";
@@ -139,6 +144,9 @@
 			dependencies = (
 			);
 			name = ListsExample;
+			packageProductDependencies = (
+				88813F6826959CB200C1801F /* LoremSwiftum */,
+			);
 			productName = ListsExample;
 			productReference = 88C52C4E268C827C00A74EFF /* ListsExample.app */;
 			productType = "com.apple.product-type.application";
@@ -167,6 +175,9 @@
 				Base,
 			);
 			mainGroup = 88C52C45268C827C00A74EFF;
+			packageReferences = (
+				88813F6726959CB200C1801F /* XCRemoteSwiftPackageReference "LoremSwiftum" */,
+			);
 			productRefGroup = 88C52C4F268C827C00A74EFF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -200,8 +211,9 @@
 				88C52C54268C827C00A74EFF /* StaticListView.swift in Sources */,
 				88FED195268DBBC300E6157D /* Book.swift in Sources */,
 				88C52C60268C835300A74EFF /* StaticListView2.swift in Sources */,
-				88813F6426958BCA00C1801F /* SearchableBookListView.swift in Sources */,
+				88813F6426958BCA00C1801F /* SearchableBooksListView.swift in Sources */,
 				88C52C52268C827C00A74EFF /* ListsExampleApp.swift in Sources */,
+				88813F6626959AC600C1801F /* RefreshableBooksListView.swift in Sources */,
 				88C52C62268C892D00A74EFF /* StaticListWithCustomRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,6 +419,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		88813F6726959CB200C1801F /* XCRemoteSwiftPackageReference "LoremSwiftum" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lukaskubanek/LoremSwiftum";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		88813F6826959CB200C1801F /* LoremSwiftum */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 88813F6726959CB200C1801F /* XCRemoteSwiftPackageReference "LoremSwiftum" */;
+			productName = LoremSwiftum;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 88C52C46268C827C00A74EFF /* Project object */;
 }

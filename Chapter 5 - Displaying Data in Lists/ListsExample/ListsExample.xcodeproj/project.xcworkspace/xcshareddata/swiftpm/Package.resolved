@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "LoremSwiftum",
+        "repositoryURL": "https://github.com/lukaskubanek/LoremSwiftum",
+        "state": {
+          "branch": null,
+          "revision": "eef89bf8b9937462f9c493789609897763b383e2",
+          "version": "2.2.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
