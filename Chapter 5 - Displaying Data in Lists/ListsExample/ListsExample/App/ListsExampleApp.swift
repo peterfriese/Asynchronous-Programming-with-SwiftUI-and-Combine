@@ -12,6 +12,7 @@ struct ListsExampleApp: App {
   var body: some Scene {
     WindowGroup {
       MenuScreen()
+        .accentColor(Color(UIColor.systemPink))
     }
   }
 }
