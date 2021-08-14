@@ -8,6 +8,7 @@
 import SwiftUI
 import LoremSwiftum
 
+@MainActor
 class RefreshableBooksViewModel: ObservableObject {
   @Published var books: [Book] = Book.samples
   
@@ -33,6 +34,12 @@ struct RefreshableBooksListView: View {
       RefreshableBookRowView(book: book)
     }
     .refreshable {
+      // As `.refreshable` is an asynchonous method, we need to make sure to execute updates on the main thread.
+      // Thanks to Swift's new concurrency model, this is now a lot simpler than it used to be. In the past, we wouldb've had to
+      // use `DispatchQueue.main.async { }` to execute async code and then jump on the main queue to perform the update. Now, it
+      // is suffiecient to just mark the `ObservableObject` as `@MainActor` to ensure all upates are executed on the main actor.
+      // If you forget to do this, Xcode will display a purple runtime warning saying "Publishing changes from background
+      // threads is not allowed; make sure to publish values from the main thread (via operators like receive(on:)) on model updates."
       await viewModel.refresh()
     }
   }
