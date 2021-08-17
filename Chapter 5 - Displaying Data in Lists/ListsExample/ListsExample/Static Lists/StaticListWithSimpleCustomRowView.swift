@@ -10,18 +10,22 @@ import SwiftUI
 struct StaticListWithSimpleCustomRowView: View {
   var body: some View {
     List {
-      VStack(alignment: .leading) {
-        Text("Apples")
-          .font(.headline)
-        Text("Eat one a day")
-          .font(.subheadline)
-      }
-      VStack(alignment: .leading) {
-        Text("Bananas")
-          .font(.headline)
-        Text("High in potassium")
-          .font(.subheadline)
-      }
+      CustomRowView(title: "Apples", subtitle: "Eat one a day")
+      CustomRowView(title: "Bananas", subtitle: "High in potassium")
+    }
+  }
+}
+
+private struct CustomRowView: View {
+  var title: String
+  var subtitle: String
+  
+  var body: some View {
+    VStack(alignment: .leading) {
+      Text(title)
+        .font(.headline)
+      Text(subtitle)
+        .font(.subheadline)
     }
   }
 }
@@ -41,8 +45,10 @@ struct StaticListWithSimpleCustomRowViewDemo: View {
 
 struct StaticListWithSimpleCustomRowViewDemo_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
-      StaticListWithSimpleCustomRowViewDemo()
+    Group {
+      NavigationView {
+        StaticListWithSimpleCustomRowViewDemo()
+      }
     }
   }
 }

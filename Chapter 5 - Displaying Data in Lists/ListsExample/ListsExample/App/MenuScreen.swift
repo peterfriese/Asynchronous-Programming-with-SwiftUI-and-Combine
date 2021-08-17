@@ -27,16 +27,20 @@ struct MenuScreen: View {
         }
         Section(header: Text("Dynamic Lists")) {
           NavigationLink(destination: BooksListViewDemo()) {
-            Label("Books List View", systemImage: "5.square")
+            Label("Books List View", systemImage: "1.square")
           }
           NavigationLink(destination: SearchableBooksListViewDemo()) {
-            Label("Searchable Books List View", systemImage: "6.square")
+            Label("Searchable Books List View", systemImage: "2.square")
           }
           NavigationLink(destination: RefreshableBooksListViewDemo()) {
-            Label("Refreshable Books List View", systemImage: "7.square")
+            Label("Refreshable Books List View", systemImage: "3.square")
           }
-          Label("Dummy", systemImage: "8.square")
-          Label("Dummy", systemImage: "9.square")
+        }
+        Section(header: Text("Styling")) {
+          NavigationLink(destination: BasicListForStylingDemo()) {
+            Label("List Styles", systemImage: "1.square")
+          }
+          Label("Dividers", systemImage: "2.square")
         }
       }
       .listStyle(InsetGroupedListStyle())

@@ -11,6 +11,7 @@ struct StaticListView: View {
   var body: some View {
     List {
       Text("Hello, world!")
+      Text("Hello, SwiftUI!")
     }
   }
 }

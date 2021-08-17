@@ -10,18 +10,25 @@ import SwiftUI
 struct StaticListWithCustomRowView: View {
   var body: some View {
     List {
-      CustomRowView(titleIcon: "🍏", title: "Apple", description: "Eat one a day", count: 2)
-      CustomRowView(titleIcon: "🍌", title: "Banana", description: "High in potassium", count: 3)
-      CustomRowView(titleIcon: "🥭", title: "Mango", description: "Soft and sweet", count: 1)
+      CustomRowView("Apple", description: "Eat one a day", titleIcon: "🍏", count: 2)
+      CustomRowView("Banana", description: "High in potassium", titleIcon: "🍌", count: 3)
+      CustomRowView("Mango", description: "Soft and sweet", titleIcon: "🥭")
     }
   }
 }
 
-struct CustomRowView: View {
-  var titleIcon: String
+private struct CustomRowView: View {
   var title: String
-  var description: String
+  var description: String?
+  var titleIcon: String
   var count: Int
+  
+  init(_ title: String, description: String? = nil, titleIcon: String, count: Int = 1) {
+    self.title = title
+    self.description = description
+    self.titleIcon = titleIcon
+    self.count = count
+  }
   
   var body: some View {
     HStack {
@@ -33,8 +40,10 @@ struct CustomRowView: View {
       VStack(alignment: .leading) {
         Text(title)
           .font(.headline)
-        Text(description)
-          .font(.subheadline)
+        if let description = description {
+          Text(description)
+            .font(.subheadline)
+        }
       }
       Spacer()
       Text("\(count)")
