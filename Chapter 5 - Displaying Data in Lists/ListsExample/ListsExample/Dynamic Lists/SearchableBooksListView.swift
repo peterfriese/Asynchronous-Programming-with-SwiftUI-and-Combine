@@ -18,10 +18,10 @@ class SearchableBooksViewModel: ObservableObject {
   // MARK: - Input
   // in a real application, we would fetch books from a repository or a service
   @Published private var originalBooks = Book.samples
-  @Published var books = [Book]()
+  @Published var searchTerm: String = ""
   
   // MARK: - Output
-  @Published var searchTerm: String = ""
+  @Published var books = [Book]()
   
   init() {
     Publishers.CombineLatest($originalBooks, $searchTerm)

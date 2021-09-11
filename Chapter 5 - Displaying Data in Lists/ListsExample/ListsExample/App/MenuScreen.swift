@@ -29,11 +29,17 @@ struct MenuScreen: View {
           NavigationLink(destination: BooksListViewDemo()) {
             Label("Books List View", systemImage: "1.square")
           }
+          NavigationLink(destination: AsyncFetchBooksListViewDemo()) {
+            Label("Fetch data asynchronously", systemImage: "2.square")
+          }
+          NavigationLink(destination: EditableBooksListViewDemo()) {
+            Label("Editable Books List View", systemImage: "3.square")
+          }
           NavigationLink(destination: SearchableBooksListViewDemo()) {
-            Label("Searchable Books List View", systemImage: "2.square")
+            Label("Searchable Books List View", systemImage: "4.square")
           }
           NavigationLink(destination: RefreshableBooksListViewDemo()) {
-            Label("Refreshable Books List View", systemImage: "3.square")
+            Label("Refreshable Books List View", systemImage: "5.square")
           }
         }
         Section(header: Text("Styling")) {

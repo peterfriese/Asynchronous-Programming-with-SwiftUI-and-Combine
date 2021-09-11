@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-class BooksViewModel: ObservableObject {
+private class BooksViewModel: ObservableObject {
   @Published var books: [Book] = Book.samples
 }
 
 struct BooksListView: View {
-  @StateObject var viewModel = BooksViewModel()
+  @StateObject fileprivate var viewModel = BooksViewModel()
   var body: some View {
     List(viewModel.books) { book in
       BookRowView(book: book)
@@ -20,7 +20,7 @@ struct BooksListView: View {
   }
 }
 
-struct BookRowView: View {
+private struct BookRowView: View {
   var book: Book
   
   var body: some View {

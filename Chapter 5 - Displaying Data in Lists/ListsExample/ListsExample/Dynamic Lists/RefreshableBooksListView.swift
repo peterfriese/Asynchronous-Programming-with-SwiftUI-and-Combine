@@ -24,6 +24,9 @@ class RefreshableBooksViewModel: ObservableObject {
     await Task.sleep(2_000_000_000)
     let book = generateNewBook()
     books.insert(book, at: 0)
+    
+    // the following line, in combination with the `.animation` modifier, makes sure we have a smooth animation
+    await Task.sleep(500_000_000)
   }
 }
 
@@ -33,9 +36,11 @@ struct RefreshableBooksListView: View {
     List(viewModel.books) { book in
       RefreshableBookRowView(book: book)
     }
+    // By default, list views aren't animated. Adding this line animates the list view whenever the collection of books has changed.
+    .animation(.default, value: viewModel.books)
     .refreshable {
       // As `.refreshable` is an asynchonous method, we need to make sure to execute updates on the main thread.
-      // Thanks to Swift's new concurrency model, this is now a lot simpler than it used to be. In the past, we wouldb've had to
+      // Thanks to Swift's new concurrency model, this is now a lot simpler than it used to be. In the past, we would've had to
       // use `DispatchQueue.main.async { }` to execute async code and then jump on the main queue to perform the update. Now, it
       // is suffiecient to just mark the `ObservableObject` as `@MainActor` to ensure all upates are executed on the main actor.
       // If you forget to do this, Xcode will display a purple runtime warning saying "Publishing changes from background

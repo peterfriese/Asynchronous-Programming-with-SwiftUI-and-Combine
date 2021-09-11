@@ -8,7 +8,7 @@
 import Foundation
 
 struct Book: Hashable, Identifiable {
-  var id = UUID()
+  var id = UUID() // probably rather use an int that the user has to provide
   var title: String
   var author: String
   var isbn: String
