@@ -68,7 +68,7 @@ private struct AsyncFetchBookRowView: View {
 struct AsyncFetchBooksListViewDemo: View {
   var body: some View {
     VStack(alignment: .leading) {
-      Introduction("Use the `task` view modifier to fetch data asynchronously.")
+      Introduction(Text("Use the `task` view modifier to fetch data asynchronously."))
       AsyncFetchBooksListView()
     }
     .listStyle(.insetGrouped) // to get back the original look and feel
