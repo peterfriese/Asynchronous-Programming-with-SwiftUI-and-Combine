@@ -89,6 +89,14 @@ struct MenuScreen: View {
             Label("Static list with sticky headers", systemImage: "1.square")
           }
         }
+        Section(header: Text("Actions")) {
+          NavigationLink(destination: SwipeToDeleteListViewDemo()) {
+            Label("Swipe to delete / edit", systemImage: "1.square")
+          }
+          NavigationLink(destination: SwipeActionsListViewDemo()) {
+            Label("Swipe Actions", systemImage: "2.square")
+          }
+        }
       }
       .listStyle(.insetGrouped)
       .navigationTitle("SwiftUI Lists")

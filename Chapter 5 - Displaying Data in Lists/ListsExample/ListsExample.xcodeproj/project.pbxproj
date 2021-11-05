@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88060628270AD78B00888498 /* SwipeToDeleteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88060627270AD78B00888498 /* SwipeToDeleteListView.swift */; };
+		8806062A270B07B700888498 /* SwipeActionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88060629270B07B700888498 /* SwipeActionsListView.swift */; };
 		8806C4D426D396BD00F25AFB /* EditableBooksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8806C4D326D396BD00F25AFB /* EditableBooksListView.swift */; };
 		8820080626D7784000919DA0 /* AsyncFetchBooksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8820080526D7784000919DA0 /* AsyncFetchBooksListView.swift */; };
 		884C0BE026C7FC99009511C4 /* BasicListForStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884C0BDF26C7FC99009511C4 /* BasicListForStyling.swift */; };
@@ -38,6 +40,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		88060627270AD78B00888498 /* SwipeToDeleteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToDeleteListView.swift; sourceTree = "<group>"; };
+		88060629270B07B700888498 /* SwipeActionsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeActionsListView.swift; sourceTree = "<group>"; };
 		8806C4D326D396BD00F25AFB /* EditableBooksListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableBooksListView.swift; sourceTree = "<group>"; };
 		8820080526D7784000919DA0 /* AsyncFetchBooksListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncFetchBooksListView.swift; sourceTree = "<group>"; };
 		884C0BDF26C7FC99009511C4 /* BasicListForStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicListForStyling.swift; sourceTree = "<group>"; };
@@ -80,6 +84,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		88060626270AD6F600888498 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				88060627270AD78B00888498 /* SwipeToDeleteListView.swift */,
+				88060629270B07B700888498 /* SwipeActionsListView.swift */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
 		884C0BDE26C7F500009511C4 /* Styling */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +129,7 @@
 				88FED188268DA29A00E6157D /* Static Lists */,
 				88FED191268DB9B200E6157D /* Dynamic Lists */,
 				884C0BDE26C7F500009511C4 /* Styling */,
+				88060626270AD6F600888498 /* Actions */,
 				88F285A526FF381F00492E6C /* Grouping & Nesting */,
 				88C52C55268C827D00A74EFF /* Assets.xcassets */,
 				88C52C57268C827D00A74EFF /* Preview Content */,
@@ -274,6 +288,7 @@
 				88F285B026FF57CB00492E6C /* InsetGroupedStyleListView.swift in Sources */,
 				8820080626D7784000919DA0 /* AsyncFetchBooksListView.swift in Sources */,
 				88F285B426FF580B00492E6C /* SidebarStyleListView.swift in Sources */,
+				8806062A270B07B700888498 /* SwipeActionsListView.swift in Sources */,
 				88F285AA26FF49A500492E6C /* GroupedStyleListView.swift in Sources */,
 				88FED190268DAD7400E6157D /* MenuScreen.swift in Sources */,
 				8806C4D426D396BD00F25AFB /* EditableBooksListView.swift in Sources */,
@@ -283,6 +298,7 @@
 				88FED193268DBB9300E6157D /* BooksListView.swift in Sources */,
 				88F285A826FF418300492E6C /* AutomaticStyleListView.swift in Sources */,
 				88C52C54268C827C00A74EFF /* StaticListView.swift in Sources */,
+				88060628270AD78B00888498 /* SwipeToDeleteListView.swift in Sources */,
 				88FED195268DBBC300E6157D /* Book.swift in Sources */,
 				88F285BA26FF6FF600492E6C /* ListSectionSeparatorStylingListView.swift in Sources */,
 				88F285B826FF6D3500492E6C /* ListRowSeparatorStylingListView.swift in Sources */,
