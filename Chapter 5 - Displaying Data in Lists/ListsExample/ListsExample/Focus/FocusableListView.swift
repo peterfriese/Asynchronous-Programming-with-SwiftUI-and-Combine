@@ -25,19 +25,19 @@ extension Reminder {
 class ReminderListViewModel: ObservableObject {
   @Published var reminders: [Reminder] = Reminder.samples
   
-  @Published var focusedTask: Focusable?
-  var previousFocusedTask: Focusable?
+  @Published var focusedReminder: Focusable?
+  var previousFocusedReminder: Focusable?
   
   private var cancellables = Set<AnyCancellable>()
   
   init() {
-    $focusedTask
+    $focusedReminder
       .removeDuplicates()
-      .compactMap { focusedTask -> Int? in
-        defer { self.previousFocusedTask = focusedTask }
+      .compactMap { focusedReminder -> Int? in
+        defer { self.previousFocusedReminder = focusedReminder }
         
-        guard focusedTask != nil else { return nil }
-        guard case .row(let previousId) = self.previousFocusedTask else { return nil }
+        guard focusedReminder != nil else { return nil }
+        guard case .row(let previousId) = self.previousFocusedReminder else { return nil }
         guard let previousIndex = self.reminders.firstIndex(where: { $0.id == previousId } ) else { return nil }
         guard self.reminders[previousIndex].title.isEmpty else { return nil }
         
@@ -50,18 +50,18 @@ class ReminderListViewModel: ObservableObject {
       .store(in: &cancellables)
   }
   
-  func createNewTask() {
+  func createNewReminder() {
     let newReminder = Reminder(title: "")
 
-    // if any row is focused, insert the new task after the focused row
-    if case .row(let id) = focusedTask {
+    // if any row is focused, insert the new reminder after the focused row
+    if case .row(let id) = focusedReminder {
       if let index = reminders.firstIndex(where: { $0.id == id } ) {
         
-        // If the currently selected task is empty, unfocus it.
-        // This will kick off the pipeline that removes empty tasks.
-        let currentTask = reminders[index]
-        guard !currentTask.title.isEmpty else {
-          focusedTask = Focusable.none
+        // If the currently selected reminder is empty, unfocus it.
+        // This will kick off the pipeline that removes empty reminders.
+        let currentReminder = reminders[index]
+        guard !currentReminder.title.isEmpty else {
+          focusedReminder = Focusable.none
           return
         }
         
@@ -73,8 +73,8 @@ class ReminderListViewModel: ObservableObject {
       reminders.append(newReminder)
     }
     
-    // focus the new task
-    focusedTask = .row(id: newReminder.id)
+    // focus the new reminder
+    focusedReminder = .row(id: newReminder.id)
 
   }
 }
@@ -89,23 +89,23 @@ struct FocusableListView: View {
   @StateObject var viewModel = ReminderListViewModel()
   
   @FocusState
-  var focusedTask: Focusable?
+  var focusedReminder: Focusable?
   
   var body: some View {
     List {
       ForEach($viewModel.reminders) { $reminder in
         TextField("", text: $reminder.title)
-          .focused($focusedTask, equals: .row(id: reminder.id))
+          .focused($focusedReminder, equals: .row(id: reminder.id))
           .onSubmit {
-            viewModel.createNewTask()
+            viewModel.createNewReminder()
           }
       }
     }
-    .onChange(of: focusedTask)  { viewModel.focusedTask = $0 }
-    .onChange(of: viewModel.focusedTask) { focusedTask = $0 }
+    .onChange(of: focusedReminder)  { viewModel.focusedReminder = $0 }
+    .onChange(of: viewModel.focusedReminder) { focusedReminder = $0 }
     .toolbar {
       ToolbarItemGroup(placement: .bottomBar) {
-        Button(action: { viewModel.createNewTask() }) {
+        Button(action: { viewModel.createNewReminder() }) {
           HStack {
             Image(systemName: "plus.circle.fill")
             Text("New Reminder")
