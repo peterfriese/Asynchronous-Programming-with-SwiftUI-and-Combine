@@ -97,6 +97,12 @@ struct MenuScreen: View {
             Label("Swipe Actions", systemImage: "2.square")
           }
         }
+        Section(header: Text("Focus")) {
+          NavigationLink(destination: FocusableListViewDemo()) {
+            Label("Focusable List Rows", systemImage: "1.square")
+          }
+        }
+
       }
       .listStyle(.insetGrouped)
       .navigationTitle("SwiftUI Lists")

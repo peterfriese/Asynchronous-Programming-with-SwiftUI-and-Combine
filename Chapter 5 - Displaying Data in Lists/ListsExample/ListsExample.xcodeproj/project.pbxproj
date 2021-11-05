@@ -15,6 +15,7 @@
 		88813F6426958BCA00C1801F /* SearchableBooksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88813F6326958BCA00C1801F /* SearchableBooksListView.swift */; };
 		88813F6626959AC600C1801F /* RefreshableBooksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88813F6526959AC600C1801F /* RefreshableBooksListView.swift */; };
 		88813F6926959CB200C1801F /* LoremSwiftum in Frameworks */ = {isa = PBXBuildFile; productRef = 88813F6826959CB200C1801F /* LoremSwiftum */; };
+		8897F8532735489300DB624D /* FocusableListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8897F8522735489300DB624D /* FocusableListView.swift */; };
 		88C52C52268C827C00A74EFF /* ListsExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C52C51268C827C00A74EFF /* ListsExampleApp.swift */; };
 		88C52C54268C827C00A74EFF /* StaticListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C52C53268C827C00A74EFF /* StaticListView.swift */; };
 		88C52C56268C827D00A74EFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88C52C55268C827D00A74EFF /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 		884C0BDF26C7FC99009511C4 /* BasicListForStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicListForStyling.swift; sourceTree = "<group>"; };
 		88813F6326958BCA00C1801F /* SearchableBooksListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableBooksListView.swift; sourceTree = "<group>"; };
 		88813F6526959AC600C1801F /* RefreshableBooksListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableBooksListView.swift; sourceTree = "<group>"; };
+		8897F8522735489300DB624D /* FocusableListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusableListView.swift; sourceTree = "<group>"; };
 		88C52C4E268C827C00A74EFF /* ListsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88C52C51268C827C00A74EFF /* ListsExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsExampleApp.swift; sourceTree = "<group>"; };
 		88C52C53268C827C00A74EFF /* StaticListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticListView.swift; sourceTree = "<group>"; };
@@ -105,6 +107,14 @@
 			path = Styling;
 			sourceTree = "<group>";
 		};
+		8897F8512735481700DB624D /* Focus */ = {
+			isa = PBXGroup;
+			children = (
+				8897F8522735489300DB624D /* FocusableListView.swift */,
+			);
+			path = Focus;
+			sourceTree = "<group>";
+		};
 		88C52C45268C827C00A74EFF = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +140,7 @@
 				88FED191268DB9B200E6157D /* Dynamic Lists */,
 				884C0BDE26C7F500009511C4 /* Styling */,
 				88060626270AD6F600888498 /* Actions */,
+				8897F8512735481700DB624D /* Focus */,
 				88F285A526FF381F00492E6C /* Grouping & Nesting */,
 				88C52C55268C827D00A74EFF /* Assets.xcassets */,
 				88C52C57268C827D00A74EFF /* Preview Content */,
@@ -293,6 +304,7 @@
 				88FED190268DAD7400E6157D /* MenuScreen.swift in Sources */,
 				8806C4D426D396BD00F25AFB /* EditableBooksListView.swift in Sources */,
 				88F285B626FF685400492E6C /* StyleAccentColor.swift in Sources */,
+				8897F8532735489300DB624D /* FocusableListView.swift in Sources */,
 				88F285B226FF57E300492E6C /* PlainStyleListView.swift in Sources */,
 				88FED18E268DA3E500E6157D /* Introduction.swift in Sources */,
 				88FED193268DBB9300E6157D /* BooksListView.swift in Sources */,
