@@ -98,8 +98,14 @@ struct MenuScreen: View {
           }
         }
         Section(header: Text("Focus")) {
+          NavigationLink(destination: SimpleFocusViewDemo()) {
+            Label("Focus using Bool", systemImage: "1.square")
+          }
+          NavigationLink(destination: FocusUsingEnumViewDemo()) {
+            Label("Focus using an Enum", systemImage: "2.square")
+          }
           NavigationLink(destination: FocusableListViewDemo()) {
-            Label("Focusable List Rows", systemImage: "1.square")
+            Label("Focusable List Rows", systemImage: "3.square")
           }
         }
 

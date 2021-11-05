@@ -16,6 +16,8 @@
 		88813F6626959AC600C1801F /* RefreshableBooksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88813F6526959AC600C1801F /* RefreshableBooksListView.swift */; };
 		88813F6926959CB200C1801F /* LoremSwiftum in Frameworks */ = {isa = PBXBuildFile; productRef = 88813F6826959CB200C1801F /* LoremSwiftum */; };
 		8897F8532735489300DB624D /* FocusableListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8897F8522735489300DB624D /* FocusableListView.swift */; };
+		8897F855273583DF00DB624D /* SimpleFocusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8897F854273583DF00DB624D /* SimpleFocusView.swift */; };
+		8897F857273585E500DB624D /* FocusUsingEnumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8897F856273585E500DB624D /* FocusUsingEnumView.swift */; };
 		88C52C52268C827C00A74EFF /* ListsExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C52C51268C827C00A74EFF /* ListsExampleApp.swift */; };
 		88C52C54268C827C00A74EFF /* StaticListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C52C53268C827C00A74EFF /* StaticListView.swift */; };
 		88C52C56268C827D00A74EFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88C52C55268C827D00A74EFF /* Assets.xcassets */; };
@@ -49,6 +51,8 @@
 		88813F6326958BCA00C1801F /* SearchableBooksListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableBooksListView.swift; sourceTree = "<group>"; };
 		88813F6526959AC600C1801F /* RefreshableBooksListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableBooksListView.swift; sourceTree = "<group>"; };
 		8897F8522735489300DB624D /* FocusableListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusableListView.swift; sourceTree = "<group>"; };
+		8897F854273583DF00DB624D /* SimpleFocusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleFocusView.swift; sourceTree = "<group>"; };
+		8897F856273585E500DB624D /* FocusUsingEnumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusUsingEnumView.swift; sourceTree = "<group>"; };
 		88C52C4E268C827C00A74EFF /* ListsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88C52C51268C827C00A74EFF /* ListsExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsExampleApp.swift; sourceTree = "<group>"; };
 		88C52C53268C827C00A74EFF /* StaticListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticListView.swift; sourceTree = "<group>"; };
@@ -110,6 +114,8 @@
 		8897F8512735481700DB624D /* Focus */ = {
 			isa = PBXGroup;
 			children = (
+				8897F854273583DF00DB624D /* SimpleFocusView.swift */,
+				8897F856273585E500DB624D /* FocusUsingEnumView.swift */,
 				8897F8522735489300DB624D /* FocusableListView.swift */,
 			);
 			path = Focus;
@@ -299,6 +305,7 @@
 				88F285B026FF57CB00492E6C /* InsetGroupedStyleListView.swift in Sources */,
 				8820080626D7784000919DA0 /* AsyncFetchBooksListView.swift in Sources */,
 				88F285B426FF580B00492E6C /* SidebarStyleListView.swift in Sources */,
+				8897F855273583DF00DB624D /* SimpleFocusView.swift in Sources */,
 				8806062A270B07B700888498 /* SwipeActionsListView.swift in Sources */,
 				88F285AA26FF49A500492E6C /* GroupedStyleListView.swift in Sources */,
 				88FED190268DAD7400E6157D /* MenuScreen.swift in Sources */,
@@ -311,6 +318,7 @@
 				88F285A826FF418300492E6C /* AutomaticStyleListView.swift in Sources */,
 				88C52C54268C827C00A74EFF /* StaticListView.swift in Sources */,
 				88060628270AD78B00888498 /* SwipeToDeleteListView.swift in Sources */,
+				8897F857273585E500DB624D /* FocusUsingEnumView.swift in Sources */,
 				88FED195268DBBC300E6157D /* Book.swift in Sources */,
 				88F285BA26FF6FF600492E6C /* ListSectionSeparatorStylingListView.swift in Sources */,
 				88F285B826FF6D3500492E6C /* ListRowSeparatorStylingListView.swift in Sources */,
