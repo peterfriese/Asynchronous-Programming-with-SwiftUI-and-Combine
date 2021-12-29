@@ -10,7 +10,6 @@ import Combine
 import Navajo_Swift
 
 class SignUpFormViewModel: ObservableObject {
-  private var authenticationService = AuthenticationService()
   
   // Input
   @Published var username: String = ""
@@ -22,7 +21,7 @@ class SignUpFormViewModel: ObservableObject {
   @Published var passwordMessage: String = ""
   @Published var isValid: Bool = false
   
-  private var isUsernameLongEnoughPublisher: AnyPublisher<Bool, Never> {
+  private var isUsernameLengthValidPublisher: AnyPublisher<Bool, Never> {
     $username
       .map { username in
         username.count >= 3
@@ -30,35 +29,11 @@ class SignUpFormViewModel: ObservableObject {
       .eraseToAnyPublisher()
   }
   
-  private var isUsernameAvailablePublisher: AnyPublisher<Bool, Never> {
-    $username
-      .debounce(for: 0.8, scheduler: RunLoop.main)
-      .removeDuplicates()
-      .flatMap { username in
-        self.authenticationService.checkUserNameAvailable2(userName: username)
-    }
-    .eraseToAnyPublisher()
-  }
-  
   enum UserNameValid {
     case valid
     case tooShort
     case notAvailable
   }
-  
-  private var isUsernameValidPublisher: AnyPublisher<UserNameValid, Never> {
-    Publishers.CombineLatest(isUsernameLongEnoughPublisher, isUsernameAvailablePublisher).map { longEnough, available in
-      if !longEnough {
-        return .tooShort
-      }
-      if !available {
-        return .notAvailable
-      }
-      return .valid
-    }
-    .eraseToAnyPublisher()
-  }
-    
   
   private var isPasswordEmptyPublisher: AnyPublisher<Bool, Never> {
     $password
@@ -108,11 +83,11 @@ class SignUpFormViewModel: ObservableObject {
         if (passwordIsEmpty) {
           return .empty
         }
-        else if (!passwordsMatching) {
-          return .noMatch
-        }
         else if (!passwordIsStrongEnough) {
           return .notStrongEnough
+        }
+        else if (!passwordsMatching) {
+          return .noMatch
         }
         else {
           return .valid
@@ -122,9 +97,9 @@ class SignUpFormViewModel: ObservableObject {
   }
   
   private var isFormValidPublisher: AnyPublisher<Bool, Never> {
-    Publishers.CombineLatest(isUsernameValidPublisher, isPasswordValidPublisher)
-      .map { usernameIsValid, passwordIsValid in
-        return (usernameIsValid == .valid) && (passwordIsValid == .valid)
+    Publishers.CombineLatest(isUsernameLengthValidPublisher, isPasswordValidPublisher)
+      .map { usernameLengthIsValid, passwordIsValid in
+        return usernameLengthIsValid && (passwordIsValid == .valid)
       }
       .eraseToAnyPublisher()
   }
@@ -134,19 +109,10 @@ class SignUpFormViewModel: ObservableObject {
       .receive(on: DispatchQueue.main)
       .assign(to: &$isValid)
     
-    isUsernameValidPublisher
-      .map { valid in
-        switch valid {
-        case .tooShort:
-          return "Username too short. Needs to be at least 3 characters."
-        case .notAvailable:
-          return "Username not available. Try a different one."
-        default:
-          return ""
-        }
-    }
-    .receive(on: DispatchQueue.main)
-    .assign(to: &$usernameMessage)
+    isUsernameLengthValidPublisher
+      .map { $0 ? "" : "Username too short. Needs to be at least 3 characters." }
+      .receive(on: DispatchQueue.main)
+      .assign(to: &$usernameMessage)
     
     isPasswordValidPublisher
       .map { passwordCheck in
@@ -189,6 +155,14 @@ struct SignUpForm: View {
       } footer: {
         Text(viewModel.passwordMessage)
           .foregroundColor(.red)
+      }
+      
+      // Submit button
+      Section {
+        Button("Sign up") {
+          print("Signing up as \(viewModel.username)")
+        }
+        .disabled(!viewModel.isValid)
       }
     }
   }
