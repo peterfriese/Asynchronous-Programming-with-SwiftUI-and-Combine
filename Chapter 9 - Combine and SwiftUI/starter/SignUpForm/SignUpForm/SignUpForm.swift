@@ -9,7 +9,6 @@ import SwiftUI
 import Combine
 
 class SignUpFormViewModel: ObservableObject {
-  
   // Input
   @Published var username: String = ""
   @Published var password: String = ""
@@ -19,12 +18,6 @@ class SignUpFormViewModel: ObservableObject {
   @Published var usernameMessage: String = ""
   @Published var passwordMessage: String = ""
   @Published var isValid: Bool = false
-  
-  init() {
-    $username
-      .map { $0.count >= 3 }
-      .assign(to: &$isValid)
-  }
 }
 
 struct SignUpForm: View {

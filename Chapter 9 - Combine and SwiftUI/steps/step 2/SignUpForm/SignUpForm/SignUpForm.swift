@@ -9,9 +9,8 @@ import SwiftUI
 import Combine
 
 class SignUpFormViewModel: ObservableObject {
-  
   // Input
-  @Published var username: String = ""
+  @Published var username: String = "pete"
   @Published var password: String = ""
   @Published var passwordConfirmation: String = ""
   
@@ -20,10 +19,19 @@ class SignUpFormViewModel: ObservableObject {
   @Published var passwordMessage: String = ""
   @Published var isValid: Bool = false
   
-  init() {
+  private lazy var isUsernameLengthValidPublisher: AnyPublisher<Bool, Never>  = {
     $username
       .map { $0.count >= 3 }
+      .eraseToAnyPublisher()
+  }()
+  
+  init() {
+    isUsernameLengthValidPublisher
       .assign(to: &$isValid)
+    
+    isUsernameLengthValidPublisher
+      .map { $0 ? "" : "Username too short. Needs to be at least 3 characters." }
+      .assign(to: &$usernameMessage)
   }
 }
 
