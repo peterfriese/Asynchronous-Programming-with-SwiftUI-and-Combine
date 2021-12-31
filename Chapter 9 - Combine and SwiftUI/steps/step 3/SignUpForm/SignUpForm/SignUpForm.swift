@@ -8,34 +8,40 @@
 import SwiftUI
 import Combine
 
+// MARK: - View Model
 private class SignUpFormViewModel: ObservableObject {
-  // Input
-  @Published var username: String = "pete"
+  
+  // MARK: Input
+  @Published var username: String = ""
   @Published var password: String = ""
   @Published var passwordConfirmation: String = ""
   
-  // Output
+  // MARK: Output
   @Published var usernameMessage: String = ""
   @Published var passwordMessage: String = ""
   @Published var isValid: Bool = false
   
+  // MARK: Username validattion
   private lazy var isUsernameLengthValidPublisher: AnyPublisher<Bool, Never>  = {
     $username
       .map { $0.count >= 3 }
       .eraseToAnyPublisher()
   }()
   
+  // MARK: Password validation
   private lazy var isPasswordEmptyPublisher: AnyPublisher<Bool, Never> = {
     $password
       .map(\.isEmpty)
-//      .map { $0.isEmpty }
+      // equivalent to
+      // .map { $0.isEmpty }
       .eraseToAnyPublisher()
   }()
   
   private lazy var isPasswordMatchingPublisher: AnyPublisher<Bool, Never> = {
     Publishers.CombineLatest($password, $passwordConfirmation)
       .map(==)
-//      .map { $0 == $1 }
+      // equivalent to
+      // .map { $0 == $1 }
       .eraseToAnyPublisher()
   }()
   
@@ -45,6 +51,7 @@ private class SignUpFormViewModel: ObservableObject {
       .eraseToAnyPublisher()
   }()
   
+  // MARK: Form validation
   private lazy var isFormValidPublisher: AnyPublisher<Bool, Never> = {
     Publishers.CombineLatest(isUsernameLengthValidPublisher, isPasswordValidPublisher)
       .map { $0 && $1 }
@@ -73,13 +80,11 @@ private class SignUpFormViewModel: ObservableObject {
   }
 }
 
+// MARK: - View
 struct SignUpForm: View {
   @StateObject private var viewModel = SignUpFormViewModel()
   
   var body: some View {
-    if #available(iOS 15.0, *) {
-      let _ = Self._printChanges()
-    }
     Form {
       // Username
       Section {
@@ -111,6 +116,7 @@ struct SignUpForm: View {
   }
 }
 
+// MARK: - Preview
 struct SignUpForm_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {

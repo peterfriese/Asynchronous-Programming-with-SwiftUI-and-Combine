@@ -8,13 +8,14 @@
 import SwiftUI
 import Combine
 
+// MARK: - View Model
 class SignUpFormViewModel: ObservableObject {
-  // Input
+  // MARK: Input
   @Published var username: String = ""
   @Published var password: String = ""
   @Published var passwordConfirmation: String = ""
   
-  // Output
+  // MARK: Output
   @Published var usernameMessage: String = ""
   @Published var passwordMessage: String = ""
   @Published var isValid: Bool = false
@@ -26,6 +27,7 @@ class SignUpFormViewModel: ObservableObject {
   }
 }
 
+// MARK: - View
 struct SignUpForm: View {
   @StateObject var viewModel = SignUpFormViewModel()
   
@@ -61,6 +63,7 @@ struct SignUpForm: View {
   }
 }
 
+// MARK: - Preview
 struct SignUpForm_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
