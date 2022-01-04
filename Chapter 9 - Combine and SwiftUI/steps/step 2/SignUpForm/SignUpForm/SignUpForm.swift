@@ -7,12 +7,12 @@
 
 import SwiftUI
 import Combine
-
+//
 // MARK: - View Model
-private class SignUpFormViewModel: ObservableObject {
+class SignUpFormViewModel: ObservableObject {
   
   // MARK: Input
-  @Published var username: String = ""
+  @Published var username: String = "pete"
   @Published var password: String = ""
   @Published var passwordConfirmation: String = ""
   
@@ -28,61 +28,19 @@ private class SignUpFormViewModel: ObservableObject {
       .eraseToAnyPublisher()
   }()
   
-  // MARK: Password validation
-  private lazy var isPasswordEmptyPublisher: AnyPublisher<Bool, Never> = {
-    $password
-      .map(\.isEmpty)
-      // equivalent to
-      // .map { $0.isEmpty }
-      .eraseToAnyPublisher()
-  }()
-  
-  private lazy var isPasswordMatchingPublisher: AnyPublisher<Bool, Never> = {
-    Publishers.CombineLatest($password, $passwordConfirmation)
-      .map(==)
-      // equivalent to
-      // .map { $0 == $1 }
-      .eraseToAnyPublisher()
-  }()
-  
-  private lazy var isPasswordValidPublisher: AnyPublisher<Bool, Never> = {
-    Publishers.CombineLatest(isPasswordEmptyPublisher, isPasswordMatchingPublisher)
-      .map { !$0 && $1 }
-      .eraseToAnyPublisher()
-  }()
-  
-  // MARK: Form validation
-  private lazy var isFormValidPublisher: AnyPublisher<Bool, Never> = {
-    Publishers.CombineLatest(isUsernameLengthValidPublisher, isPasswordValidPublisher)
-      .map { $0 && $1 }
-      .eraseToAnyPublisher()
-  }()
-  
   init() {
-    isFormValidPublisher
+    isUsernameLengthValidPublisher
       .assign(to: &$isValid)
-
+    
     isUsernameLengthValidPublisher
       .map { $0 ? "" : "Username too short. Needs to be at least 3 characters." }
       .assign(to: &$usernameMessage)
-
-    Publishers.CombineLatest(isPasswordEmptyPublisher, isPasswordMatchingPublisher)
-      .map { isPasswordEmpty, isPasswordMatching in
-        if isPasswordEmpty {
-          return "Password must not be empty"
-        }
-        else if !isPasswordMatching {
-          return "Passwords do not match"
-        }
-        return ""
-      }
-      .assign(to: &$passwordMessage)
   }
 }
 
 // MARK: - View
 struct SignUpForm: View {
-  @StateObject private var viewModel = SignUpFormViewModel()
+  @StateObject var viewModel = SignUpFormViewModel()
   
   var body: some View {
     Form {

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import Navajo_Swift
 
 // MARK: - View Model
 private class SignUpFormViewModel: ObservableObject {
@@ -22,7 +23,7 @@ private class SignUpFormViewModel: ObservableObject {
   @Published var isValid: Bool = false
   
   // MARK: Username validattion
-  private lazy var isUsernameLengthValidPublisher: AnyPublisher<Bool, Never>  = {
+  private lazy var isUsernameLengthValidPublisher: AnyPublisher<Bool, Never> = {
     $username
       .map { $0.count >= 3 }
       .eraseToAnyPublisher()
@@ -37,6 +38,12 @@ private class SignUpFormViewModel: ObservableObject {
       .eraseToAnyPublisher()
   }()
   
+  private lazy var isPasswordLengthValidPublisher: AnyPublisher<Bool, Never> = {
+    $password
+      .map { $0.count >= 8 }
+      .eraseToAnyPublisher()
+  } ()
+  
   private lazy var isPasswordMatchingPublisher: AnyPublisher<Bool, Never> = {
     Publishers.CombineLatest($password, $passwordConfirmation)
       .map(==)
@@ -45,9 +52,23 @@ private class SignUpFormViewModel: ObservableObject {
       .eraseToAnyPublisher()
   }()
   
+  private lazy var isPasswordStrongEnoughPublisher: AnyPublisher<Bool, Never> = {
+     $password
+      .map(Navajo.strength(ofPassword:))
+      .map { passwordStrength in
+        switch passwordStrength {
+        case .veryWeak, .weak:
+          return false
+        case .reasonable, .strong, .veryStrong:
+          return true
+        }
+      }
+      .eraseToAnyPublisher()
+  }()
+  
   private lazy var isPasswordValidPublisher: AnyPublisher<Bool, Never> = {
-    Publishers.CombineLatest(isPasswordEmptyPublisher, isPasswordMatchingPublisher)
-      .map { !$0 && $1 }
+    Publishers.CombineLatest4(isPasswordEmptyPublisher, isPasswordLengthValidPublisher, isPasswordStrongEnoughPublisher, isPasswordMatchingPublisher)
+      .map { !$0 && $1 && $2 && $3 }
       .eraseToAnyPublisher()
   }()
   
@@ -66,10 +87,16 @@ private class SignUpFormViewModel: ObservableObject {
       .map { $0 ? "" : "Username too short. Needs to be at least 3 characters." }
       .assign(to: &$usernameMessage)
 
-    Publishers.CombineLatest(isPasswordEmptyPublisher, isPasswordMatchingPublisher)
-      .map { isPasswordEmpty, isPasswordMatching in
+    Publishers.CombineLatest4(isPasswordEmptyPublisher, isPasswordLengthValidPublisher, isPasswordStrongEnoughPublisher, isPasswordMatchingPublisher)
+      .map { isPasswordEmpty, isPasswordLengthValid, isPasswordStrongEnough, isPasswordMatching in
         if isPasswordEmpty {
           return "Password must not be empty"
+        }
+        else if !isPasswordLengthValid {
+          return "Password needs to be at least 8 characters"
+        }
+        else if !isPasswordStrongEnough {
+          return "Password not strong enough"
         }
         else if !isPasswordMatching {
           return "Passwords do not match"
