@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Navajo-Swift",
+        "repositoryURL": "https://github.com/jasonnam/Navajo-Swift",
+        "state": {
+          "branch": "master",
+          "revision": "a8ca1756ed782e9d2fb412fa07227e756c25f948",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

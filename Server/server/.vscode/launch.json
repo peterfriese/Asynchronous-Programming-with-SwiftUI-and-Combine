@@ -1,0 +1,33 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug Run",
+            "program": "${workspaceFolder}/.build/debug/Run",
+            "args": [],
+            "cwd": "${workspaceFolder:server}",
+            "preLaunchTask": "swift: Build Debug Run"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Release Run",
+            "program": "${workspaceFolder}/.build/release/Run",
+            "args": [],
+            "cwd": "${workspaceFolder:server}",
+            "preLaunchTask": "swift: Build Release Run"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Test server",
+            "program": "/Applications/Xcode-13.2.0-Release.Candidate.app/Contents/Developer/usr/bin/xctest",
+            "args": [
+                ".build/debug/serverPackageTests.xctest"
+            ],
+            "cwd": "${workspaceFolder:server}",
+            "preLaunchTask": "swift: Build All"
+        }
+    ]
+}
