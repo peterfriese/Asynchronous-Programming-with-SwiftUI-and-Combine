@@ -23,5 +23,6 @@ extension Book {
 let sampleBooks = [
   Book(title: "Changer", author: "Matt Gemmell", isbn: "9781916265202", pages: 476),
   Book(title: "SwiftUI for Absolute Beginners", author: "Jayant Varma", isbn: "9781484255155", pages: 200),
+  Book(title: "SwiftUI and Combine", author: "Peter Friese", isbn: "swiftuicombine", pages: 367),
   Book(title: "Why we sleep", author: "Matthew Walker", isbn: "9780141983769", pages: 368)
 ]

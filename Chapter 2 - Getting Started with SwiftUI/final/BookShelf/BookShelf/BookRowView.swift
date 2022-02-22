@@ -2,7 +2,7 @@
 //  BookRowView.swift
 //  BookShelf
 //
-//  Created by Peter Friese on 04/01/2021.
+//  Created by Peter Friese on 22.02.22.
 //
 
 import SwiftUI
@@ -30,7 +30,7 @@ struct BookRowView: View {
 
 struct BookRowView_Previews: PreviewProvider {
   static var previews: some View {
-    BookRowView(book: sampleBooks[0])
+    BookRowView(book: sampleBooks[2])
       .previewLayout(.sizeThatFits)
   }
 }

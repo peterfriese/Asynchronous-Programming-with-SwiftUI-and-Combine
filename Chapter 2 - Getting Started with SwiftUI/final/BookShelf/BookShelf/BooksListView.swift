@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  BookShelf
 //
-//  Created by Peter Friese on 02/01/2021.
+//  Created by Peter Friese on 09.01.21.
 //
 
 import SwiftUI
@@ -10,29 +10,19 @@ import SwiftUI
 struct BooksListView: View {
   var books: [Book]
   var body: some View {
-    List {
-      ForEach(books) { book in
-        BookRowView(book: book)
-      }
-      .listRowBackground(Color(UIColor.systemGray6))
+    List(books) { book in
+      BookRowView(book: book)
     }
+    .listStyle(.plain)
   }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct BooksListView_Previews: PreviewProvider {
   static var previews: some View {
     Group {
-      NavigationView {
-        BooksListView(books: sampleBooks)
-          .navigationTitle("Books")
-          .preferredColorScheme(.dark)
-      }
-      NavigationView {
-        BooksListView(books: sampleBooks)
-          .navigationTitle("Books")
-          .preferredColorScheme(.light)
-      }
-      
+      BooksListView(books: sampleBooks)
+      BooksListView(books: sampleBooks)
+        .preferredColorScheme(.dark)
     }
   }
 }

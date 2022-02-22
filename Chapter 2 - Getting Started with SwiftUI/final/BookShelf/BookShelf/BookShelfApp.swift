@@ -2,7 +2,7 @@
 //  BookShelfApp.swift
 //  BookShelf
 //
-//  Created by Peter Friese on 02/01/2021.
+//  Created by Peter Friese on 09.01.21.
 //
 
 import SwiftUI
@@ -11,10 +11,7 @@ import SwiftUI
 struct BookShelfApp: App {
   var body: some Scene {
     WindowGroup {
-      NavigationView {
-        BooksListView(books: sampleBooks)
-          .navigationTitle("Books")
-      }
+      BooksListView(books: sampleBooks)
     }
   }
 }
