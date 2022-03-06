@@ -98,21 +98,61 @@ struct AuthenticationService {
       }
 
     return dataTaskPublisher
-      .tryCatch { error -> AnyPublisher<(data: Data, response: URLResponse), Error> in
-        if case APIError.serverError = error {
-          return Just(Void())
-            .delay(for: 3, scheduler: DispatchQueue.global())
-            .flatMap { _ in
-              return dataTaskPublisher
-            }
-            .print("before retry")
-            .retry(10)
-            .eraseToAnyPublisher()
+    // MARK: - This is the original implementation
+//      .tryCatch { error -> AnyPublisher<(data: Data, response: URLResponse), Error> in
+//        if case APIError.serverError = error {
+//          return Just(Void())
+//            .delay(for: 3, scheduler: DispatchQueue.global())
+//            .flatMap { _ in
+//              return dataTaskPublisher
+//            }
+//            .print("before retry")
+//            .retry(10)
+//            .eraseToAnyPublisher()
+//        }
+
+    // MARK: - Option 1: Unconditional retry with constant delay
+//          .retry(10, withDelay: 3)
+    
+    // MARK: - Option 2: Retry with constant delay and condition
+//      .retry(10, withDelay: 3) { error in
+//        if case APIError.serverError = error {
+//          return true
+//        }
+//        return false
+//      }
+    
+    // MARK: - Option 3: Retry using a strategy to specify the number of retries and the delay
+//      .retry { error in
+//        if case APIError.serverError(_, _, let delayTime) = error {
+//          return .retry(retries: 2, delay: Int(delayTime ?? "") ?? 3)
+//        }
+//        else {
+//          return .skip
+//        }
+//      }
+    
+    // MARK: - Option 4: Retry using retry-after info from the error to determine the delay
+//      .retry(3, withDelay: { error in
+//        if case APIError.serverError(_, _, let delayTime) = error {
+//          return Int(delayTime ?? "") ?? 3
+//        }
+//        else {
+//          return 3
+//        }
+//      })
+    
+    // MARK: - Option 5: Exponential backoff with condition
+      .retry(2, withBackoff: 3) { error in
+        if case APIError.serverError(_, _, _) = error {
+          return true
         }
-        throw error
+        else {
+          return false
+        }
       }
+
       .map(\.data)
-//      .decode(type: UserNameAvailableMessage.self, decoder: JSONDecoder())
       .tryMap { data -> UserNameAvailableMessage in
         let decoder = JSONDecoder()
         do {
@@ -123,7 +163,6 @@ struct AuthenticationService {
         }
       }
       .map(\.isAvailable)
-//      .replaceError(with: false)
       .eraseToAnyPublisher()
   }
   

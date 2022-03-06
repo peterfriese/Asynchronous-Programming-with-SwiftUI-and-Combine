@@ -23,7 +23,7 @@ extension InternalServerError: AbortError {
   
   var headers: HTTPHeaders {
     if case .maintenance = self {
-      return ["Retry-After" : "120"]
+      return ["Retry-After" : "17"]
     }
     else {
       return [:]

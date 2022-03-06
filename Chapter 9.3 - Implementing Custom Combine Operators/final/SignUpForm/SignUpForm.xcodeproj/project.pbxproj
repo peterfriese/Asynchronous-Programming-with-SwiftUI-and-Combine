@@ -13,6 +13,8 @@
 		8864075A277A35B2001446A6 /* SignUpFormScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88640759277A35B2001446A6 /* SignUpFormScreen.swift */; };
 		8864075C277A35B4001446A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8864075B277A35B4001446A6 /* Assets.xcassets */; };
 		8864075F277A35B4001446A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8864075E277A35B4001446A6 /* Preview Assets.xcassets */; };
+		887A68EB27D4B65E00DA5489 /* Publishers+Retry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887A68EA27D4B65E00DA5489 /* Publishers+Retry.swift */; };
+		887A68ED27D4B66B00DA5489 /* Publishers+Dump.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887A68EC27D4B66B00DA5489 /* Publishers+Dump.swift */; };
 		887EDC4527845EF4006FBFEE /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887EDC4427845EF4006FBFEE /* AuthenticationService.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +25,8 @@
 		88640759277A35B2001446A6 /* SignUpFormScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFormScreen.swift; sourceTree = "<group>"; };
 		8864075B277A35B4001446A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8864075E277A35B4001446A6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		887A68EA27D4B65E00DA5489 /* Publishers+Retry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+Retry.swift"; sourceTree = "<group>"; };
+		887A68EC27D4B66B00DA5489 /* Publishers+Dump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+Dump.swift"; sourceTree = "<group>"; };
 		887EDC4427845EF4006FBFEE /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +103,7 @@
 		88640756277A35B2001446A6 /* SignUpForm */ = {
 			isa = PBXGroup;
 			children = (
+				887A68E927D4B64300DA5489 /* Extensions */,
 				8803DD492796E7D600EE00D7 /* Features */,
 				88640757277A35B2001446A6 /* SignUpFormApp.swift */,
 				8864075B277A35B4001446A6 /* Assets.xcassets */,
@@ -113,6 +118,15 @@
 				8864075E277A35B4001446A6 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		887A68E927D4B64300DA5489 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				887A68EA27D4B65E00DA5489 /* Publishers+Retry.swift */,
+				887A68EC27D4B66B00DA5489 /* Publishers+Dump.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +207,8 @@
 			files = (
 				887EDC4527845EF4006FBFEE /* AuthenticationService.swift in Sources */,
 				8864075A277A35B2001446A6 /* SignUpFormScreen.swift in Sources */,
+				887A68ED27D4B66B00DA5489 /* Publishers+Dump.swift in Sources */,
+				887A68EB27D4B65E00DA5489 /* Publishers+Retry.swift in Sources */,
 				8803DD4F2796E83900EE00D7 /* SignUpFormViewModel.swift in Sources */,
 				88640758277A35B2001446A6 /* SignUpFormApp.swift in Sources */,
 			);
