@@ -2,11 +2,11 @@ import Foundation
 
 public struct Topping {
   public var name: String
-  public var isVeg: Bool
+  public var isVegan: Bool
 
-  public init(_ name: String, isVeg: Bool) {
+  public init(_ name: String, isVegan: Bool) {
     self.name = name
-    self.isVeg = isVeg
+    self.isVegan = isVegan
   }
 }
 

@@ -4,9 +4,9 @@ import Foundation
 import Combine
 
 let margheritaOrder = Order(toppings: [
-  Topping("tomatoes", isVeg: true),
-  Topping("mozarella", isVeg: true),
-  Topping("basil", isVeg: true)
+  Topping("tomatoes", isVegan: true),
+  Topping("vegan mozzarella", isVegan: true),
+  Topping("basil", isVegan: true)
 ])
 
 let orderStatusPublisher = NotificationCenter.default.publisher(for: .didUpdateOrderStatus, object: margheritaOrder)
