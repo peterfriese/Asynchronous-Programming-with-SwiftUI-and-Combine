@@ -4,9 +4,9 @@ import Foundation
 import Combine
 
 let margheritaOrder = Order(toppings: [
-  Topping("tomatoes", isVeg: true),
-  Topping("mozarella", isVeg: true),
-  Topping("basil", isVeg: true)
+  Topping("tomatoes", isVegan: true),
+  Topping("vegan mozzarella", isVegan: true),
+  Topping("basil", isVegan: true)
 ])
 
 let margheritaOrderPublisher = NotificationCenter.default.publisher(for: .didUpdateOrderStatus, object: margheritaOrder)
@@ -22,27 +22,28 @@ extraToppingPublisher
     notification.userInfo?["extra"] as? Topping
   }
   .filter{ topping in
-    topping.isVeg
+    topping.isVegan
   }
-  .filter { $0.isVeg }
+  .filter { $0.isVegan }
   .prefix(3)
   .prefix(while: { topping in
     margheritaOrder.status == .placing
   })
   .sink { value in
-    if var toppings = margheritaOrder.toppings {
-      toppings.append(value)
+    if margheritaOrder.toppings != nil {
+      margheritaOrder.toppings!.append(value)
       print("Adding \(value.name)")
-      print("Your order now contains \(toppings.count) toppings")
+      print("Your order now contains \(margheritaOrder.toppings!.count) toppings")
     }
   }
 
-NotificationCenter.default.post(name: .addTopping, object: margheritaOrder, userInfo: ["extra": Topping("salami", isVeg: false)])
-NotificationCenter.default.post(name: .addTopping, object: margheritaOrder, userInfo: ["extra": Topping("extra cheese", isVeg: true)])
-NotificationCenter.default.post(name: .addTopping, object: margheritaOrder, userInfo: ["extra": Topping("pepperoni", isVeg: true)])
+NotificationCenter.default.post(name: .addTopping, object: margheritaOrder, userInfo: ["extra": Topping("salami", isVegan: false)])
+NotificationCenter.default.post(name: .addTopping, object: margheritaOrder, userInfo: ["extra": Topping("olives", isVegan: true)])
+NotificationCenter.default.post(name: .addTopping, object: margheritaOrder, userInfo: ["extra": Topping("pepperoni", isVegan: true)])
+NotificationCenter.default.post(name: .addTopping, object: margheritaOrder, userInfo: ["extra": Topping("capers", isVegan: true)])
 
 NotificationCenter.default.post(name: .didUpdateOrderStatus, object: margheritaOrder, userInfo: ["status": OrderStatus.processing])
-NotificationCenter.default.post(name: .addTopping, object: margheritaOrder, userInfo: ["extra": Topping("extra cheese", isVeg: true)])
+NotificationCenter.default.post(name: .addTopping, object: margheritaOrder, userInfo: ["extra": Topping("olives", isVegan: true)])
 NotificationCenter.default.post(name: .didUpdateOrderStatus, object: margheritaOrder, userInfo: ["status": OrderStatus.delivered])
 
 //: [<Previous](@previous)  [Home](Introduction)  [Next>](@next)
