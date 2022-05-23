@@ -22,7 +22,7 @@ enum NetworkError: Error {
   case encodingError(Error)
 }
 
-struct AuthenticationService {
+class AuthenticationService {
   
   /// 1: Fetching data using URLSession *without* using Combine
   func checkUserNameAvailableOldSchool(userName: String, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
