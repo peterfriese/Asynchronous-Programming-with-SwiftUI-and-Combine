@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios'>
+    <pages>
+        <page name='Introduction'/>
+        <page name='Synchronous Code'/>
+        <page name='Completion Handlers'/>
+        <page name='Asynchronous Completion Handlers'/>
+        <page name='async await'/>
+        <page name='async let'/>
+    </pages>
+</playground>
