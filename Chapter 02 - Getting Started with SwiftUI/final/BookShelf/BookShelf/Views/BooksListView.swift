@@ -1,5 +1,5 @@
 //
-//  BookShelfApp.swift
+//  ContentView.swift
 //  BookShelf
 //
 //  Created by Peter Friese on 11.09.22.
@@ -18,11 +18,18 @@
 
 import SwiftUI
 
-@main
-struct BookShelfApp: App {
-  var body: some Scene {
-    WindowGroup {
-      BooksListView(books: Book.sampleBooks)
+struct BooksListView: View {
+  var books: [Book]
+  var body: some View {
+    List(books) { book in
+      BookRowView(book: book)
     }
+    .listStyle(.plain)
+  }
+}
+
+struct ContentView_Previews: PreviewProvider {
+  static var previews: some View {
+    BooksListView(books: Book.sampleBooks)
   }
 }
