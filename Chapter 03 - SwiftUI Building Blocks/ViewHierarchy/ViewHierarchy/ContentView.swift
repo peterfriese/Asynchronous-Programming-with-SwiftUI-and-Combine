@@ -1,8 +1,8 @@
 //
-//  SimpleViewApp.swift
-//  SimpleView
+//  ContentView.swift
+//  ViewHierarchy
 //
-//  Created by Peter Friese on 13.09.22.
+//  Created by Peter Friese on 14.09.22.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -18,11 +18,25 @@
 
 import SwiftUI
 
-@main
-struct SimpleViewApp: App {
-  var body: some Scene {
-    WindowGroup {
-      ContentView()
+struct ContentView: View {
+  @State var text = ""
+  
+  var body: some View {
+    List {
+      Label("Hello World", systemImage: "globe")
+      HStack {
+        Image(systemName: "globe")
+          .imageScale(.large)
+          .foregroundColor(.accentColor)
+        Text("Hello, world!")
+      }
+      TextField("TextField", text: $text)
     }
+  }
+}
+
+struct ContentView_Previews: PreviewProvider {
+  static var previews: some View {
+    ContentView()
   }
 }

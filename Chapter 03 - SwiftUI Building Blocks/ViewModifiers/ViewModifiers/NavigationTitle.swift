@@ -1,8 +1,8 @@
 //
-//  SimpleViewApp.swift
-//  SimpleView
+//  NavigationTitle.swift
+//  ViewModifiers
 //
-//  Created by Peter Friese on 13.09.22.
+//  Created by Peter Friese on 14.09.22.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -18,11 +18,20 @@
 
 import SwiftUI
 
-@main
-struct SimpleViewApp: App {
-  var body: some Scene {
-    WindowGroup {
-      ContentView()
+struct NavigationTitle: View {
+  var body: some View {
+    NavigationStack {
+      HStack {
+        Text("Hello, World!")
+          .navigationTitle("Inner title")
+      }
+      .navigationTitle("Outer title")
     }
+  }
+}
+
+struct NavigationTitle_Previews: PreviewProvider {
+  static var previews: some View {
+    NavigationTitle()
   }
 }

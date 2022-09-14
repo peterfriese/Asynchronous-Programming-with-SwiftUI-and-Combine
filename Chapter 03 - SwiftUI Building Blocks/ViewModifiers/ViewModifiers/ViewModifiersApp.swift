@@ -1,8 +1,8 @@
 //
-//  SimpleViewApp.swift
-//  SimpleView
+//  ViewModifiersApp.swift
+//  ViewModifiers
 //
-//  Created by Peter Friese on 13.09.22.
+//  Created by Peter Friese on 14.09.22.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -19,10 +19,10 @@
 import SwiftUI
 
 @main
-struct SimpleViewApp: App {
+struct ViewModifiersApp: App {
   var body: some Scene {
     WindowGroup {
-      ContentView()
+      ClosuresDemoView()
     }
   }
 }
