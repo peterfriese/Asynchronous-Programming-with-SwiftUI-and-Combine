@@ -68,7 +68,7 @@ struct ObservedObjectSampleScreen: View {
 
 struct ObservedObjectSampleScreen_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       ObservedObjectSampleScreen(viewModel: BooksListViewModel(books: Book.samples))
     }
   }

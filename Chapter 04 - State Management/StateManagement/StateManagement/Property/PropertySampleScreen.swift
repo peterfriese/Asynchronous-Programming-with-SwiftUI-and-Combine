@@ -47,7 +47,7 @@ struct PropertySampleScreen: View {
 
 struct PropertySampleScreen_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       PropertySampleScreen()
     }
   }

@@ -51,10 +51,10 @@ struct EnvironmentObjectSampleScreen: View {
       }
     }
     .sheet(isPresented: $isSettingsShown) {
-      NavigationView {
+      NavigationStack {
         SettingsScreen()
       }
-      .environmentObject(profile) // very important to put this here, NOT inside the NavigationView! See https://developer.apple.com/forums/thread/653367
+      .environmentObject(profile) // very important to put this here, NOT inside the NavigationStack! See https://developer.apple.com/forums/thread/653367
     }
   }
   
@@ -65,7 +65,7 @@ struct EnvironmentObjectSampleScreen: View {
 
 struct EnvironmentObjectSampleScreen_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       EnvironmentObjectSampleScreen()
     }
   }

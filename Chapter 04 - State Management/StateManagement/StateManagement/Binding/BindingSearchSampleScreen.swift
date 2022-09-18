@@ -56,7 +56,7 @@ struct BindingSearchSampleScreen: View {
 
 struct BindingSearchSampleScreen_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       BindingSearchSampleScreen()
     }
   }

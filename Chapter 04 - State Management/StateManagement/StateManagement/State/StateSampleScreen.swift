@@ -71,7 +71,7 @@ struct StateSampleScreen: View {
 
 struct StateSampleScreen_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       StateSampleScreen()
     }
   }

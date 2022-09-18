@@ -9,8 +9,8 @@ import SwiftUI
 
 struct MenuScreen: View {
   var body: some View {
-    NavigationView {
-      List() {
+    NavigationSplitView {
+      List {
         Section(header: Text("Value Types")) {
           NavigationLink(destination: PropertySampleScreen()) {
             Label("Property", systemImage: "1.square")
@@ -35,13 +35,14 @@ struct MenuScreen: View {
           NavigationLink(destination: EnvironmentObjectSampleScreen()) {
             Label("@EnvironmentObject", systemImage: "7.square")
           }
-          Label("@SceneStorage", systemImage: "8.square")
-          Label("@AppStorage", systemImage: "9.square")
         }
       }
       .listStyle(InsetGroupedListStyle())
       .navigationTitle("State Management")
+    } detail: {
+      Text("Please select a sample from the menu on the left")
     }
+
   }
 }
 
@@ -49,8 +50,6 @@ struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
     Group {
       MenuScreen()
-      MenuScreen()
-        .preferredColorScheme(.dark)
     }
   }
 }

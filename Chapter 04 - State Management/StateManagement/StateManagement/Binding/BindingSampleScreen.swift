@@ -50,7 +50,7 @@ struct NumberEditView: View {
 
 struct BindingSampleView_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       BindingSampleScreen()
     }
   }

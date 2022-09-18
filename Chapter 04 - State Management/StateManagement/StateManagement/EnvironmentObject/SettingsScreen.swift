@@ -35,7 +35,7 @@ struct SettingsScreen: View {
 
 struct SettingsScreen_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       SettingsScreen()
         .environmentObject(UserProfile(name: "Peter", favouriteProgrammingLanguage: "Swift", favouriteColor: .pink))
     }

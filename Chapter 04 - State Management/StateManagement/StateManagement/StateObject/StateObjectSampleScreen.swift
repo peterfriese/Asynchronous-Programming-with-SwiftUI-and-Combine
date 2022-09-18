@@ -51,7 +51,7 @@ struct ObservedStepper: View {
 
 struct StateObjectSampleScreen_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       StateObjectSampleScreen()
     }
   }
