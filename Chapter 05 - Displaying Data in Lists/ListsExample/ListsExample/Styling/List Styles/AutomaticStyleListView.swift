@@ -22,7 +22,7 @@ struct AutomaticStyleListViewDemo: View {
 
 struct AutomaticStyleListView_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       AutomaticStyleListViewDemo()
     }
   }

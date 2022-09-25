@@ -46,7 +46,7 @@ struct StaticListWithSimpleCustomRowViewDemo: View {
 struct StaticListWithSimpleCustomRowViewDemo_Previews: PreviewProvider {
   static var previews: some View {
     Group {
-      NavigationView {
+      NavigationStack {
         StaticListWithSimpleCustomRowViewDemo()
       }
     }

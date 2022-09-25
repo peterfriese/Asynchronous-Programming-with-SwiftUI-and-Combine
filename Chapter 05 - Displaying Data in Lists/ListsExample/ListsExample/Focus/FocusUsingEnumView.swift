@@ -54,7 +54,7 @@ struct FocusUsingEnumViewDemo: View {
 
 struct FocusUsingEnumView_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       FocusableListViewDemo()
     }
   }

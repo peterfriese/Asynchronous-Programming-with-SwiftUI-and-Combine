@@ -22,7 +22,7 @@ struct StyleAccentColorDemo: View {
 
 struct StyleAccentColor_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       StyleAccentColorDemo()
     }
   }

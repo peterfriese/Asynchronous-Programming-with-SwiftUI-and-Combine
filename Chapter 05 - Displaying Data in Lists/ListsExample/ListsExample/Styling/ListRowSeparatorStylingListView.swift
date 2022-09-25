@@ -42,7 +42,7 @@ struct ListRowSeparatorStylingListViewDemo: View {
 
 struct ListRowSeparatorStylingListViewDemo_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       ListRowSeparatorStylingListViewDemo()
     }
   }

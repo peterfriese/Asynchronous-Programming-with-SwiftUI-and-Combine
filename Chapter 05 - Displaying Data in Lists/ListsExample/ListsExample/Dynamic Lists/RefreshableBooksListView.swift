@@ -20,13 +20,20 @@ class RefreshableBooksViewModel: ObservableObject {
   }
   
   func refresh() async {
-    // in Xcode 13 b1 and b2, this crashes. Add SWIFT_DEBUG_CONCURRENCY_ENABLE_COOPERATIVE_QUEUES = NO to the target's environment values as a workaround
-    await Task.sleep(2_000_000_000)
+    do {
+      try await Task.sleep(nanoseconds: 2_000_000_000)
+    }
+    catch {
+    }
     let book = generateNewBook()
     books.insert(book, at: 0)
     
     // the following line, in combination with the `.animation` modifier, makes sure we have a smooth animation
-    await Task.sleep(500_000_000)
+    do {
+      try await Task.sleep(nanoseconds: 500_000_000)
+    }
+    catch {
+    }
   }
 }
 
@@ -87,7 +94,7 @@ struct RefreshableBooksListViewDemo: View {
 
 struct RefreshableBooksListView_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       RefreshableBooksListViewDemo()
     }
   }

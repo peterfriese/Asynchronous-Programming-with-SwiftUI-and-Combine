@@ -89,7 +89,7 @@ struct ListSectionSeparatorStylingListViewDemo: View {
 
 struct ListSectionSeparatorStylingListViewDemo_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       ListSectionSeparatorStylingListViewDemo()
     }
   }
