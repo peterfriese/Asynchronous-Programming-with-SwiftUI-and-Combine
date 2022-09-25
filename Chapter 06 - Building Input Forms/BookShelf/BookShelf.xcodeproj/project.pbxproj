@@ -45,6 +45,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		882A592628E0ABA200D676AA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				88A05B3425A0C2940070514C /* BooksListView.swift */,
+				88A05B4825A3867F0070514C /* BookRowView.swift */,
+				8860600925F2A41200BA7F38 /* BookDetailsView.swift */,
+				8860600B25F2A9CF00BA7F38 /* BookEditView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		882A592728E0ABC300D676AA /* App */ = {
+			isa = PBXGroup;
+			children = (
+				88A05B3225A0C2940070514C /* BookShelfApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		88A05B2625A0C2930070514C = {
 			isa = PBXGroup;
 			children = (
@@ -64,14 +83,11 @@
 		88A05B3125A0C2940070514C /* BookShelf */ = {
 			isa = PBXGroup;
 			children = (
+				882A592728E0ABC300D676AA /* App */,
 				88B5A91225F3CF8D00B33036 /* Utils */,
-				88A05B3225A0C2940070514C /* BookShelfApp.swift */,
-				88A05B3425A0C2940070514C /* BooksListView.swift */,
-				88A05B4825A3867F0070514C /* BookRowView.swift */,
-				8860600925F2A41200BA7F38 /* BookDetailsView.swift */,
-				8860600B25F2A9CF00BA7F38 /* BookEditView.swift */,
-				88B5A90F25F3BD9000B33036 /* ViewModels */,
 				88A05B4525A37D430070514C /* Model */,
+				88B5A90F25F3BD9000B33036 /* ViewModels */,
+				882A592628E0ABA200D676AA /* Views */,
 				88A05B3625A0C2940070514C /* Assets.xcassets */,
 				88A05B3B25A0C2940070514C /* Info.plist */,
 				88A05B3825A0C2940070514C /* Preview Content */,
@@ -317,10 +333,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"BookShelf/Preview Content\"";
-				DEVELOPMENT_TEAM = YGAZHQXHH4;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = BookShelf/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -339,10 +355,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"BookShelf/Preview Content\"";
-				DEVELOPMENT_TEAM = YGAZHQXHH4;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = BookShelf/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

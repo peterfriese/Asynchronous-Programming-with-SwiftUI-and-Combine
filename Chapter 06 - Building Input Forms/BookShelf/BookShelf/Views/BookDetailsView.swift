@@ -20,9 +20,9 @@ struct BookDetailsView: View {
         .shadow(radius: 10)
         .padding()
       Label(book.author, systemImage: "person.crop.rectangle")
-      Label("\(book.isbn) pages", systemImage: "number")
+      Label("ISBN: \(book.isbn)", systemImage: "number")
       Label("\(book.pages) pages", systemImage: "book")
-      Toggle("Read", isOn: .constant(true))
+      Toggle("Read", isOn: .constant(book.isRead))
       Button(action: { showEditBookView.toggle() }) {
         Label("Edit", systemImage: "pencil")
       }
@@ -36,8 +36,8 @@ struct BookDetailsView: View {
 
 struct BookDetailsView_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
-      BookDetailsView(book: .constant(Book.samples[0]))
+    NavigationStack {
+      BookDetailsView(book: .constant(Book.samples[3]))
     }
     .preferredColorScheme(.dark)
   }

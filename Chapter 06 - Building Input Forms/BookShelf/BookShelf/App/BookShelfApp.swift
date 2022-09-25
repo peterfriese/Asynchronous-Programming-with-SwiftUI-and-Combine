@@ -19,9 +19,11 @@ struct BookShelfApp: App {
   
   var body: some Scene {
     WindowGroup {
-      NavigationView {
+      NavigationSplitView {
         BooksListView(booksViewModel: booksViewModel)
           .navigationTitle("Books")
+      } detail: {
+        Text("Select a book")
       }
     }
   }

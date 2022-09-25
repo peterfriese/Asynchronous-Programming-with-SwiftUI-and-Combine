@@ -23,7 +23,7 @@ class BookEditViewModel: ObservableObject {
 struct BookEditView: View {
   @Binding var book: Book
   @ObservedObject var bookEditViewModel: BookEditViewModel
-  @Environment(\.presentationMode) var presentationMode
+  @Environment(\.dismiss) var dismiss
   
   init(book: Binding<Book>) {
     self._book = book
@@ -31,16 +31,16 @@ struct BookEditView: View {
   }
   
   func cancel() {
-    presentationMode.wrappedValue.dismiss()
+    dismiss()
   }
   
   func save() {
     self.book = bookEditViewModel.book
-    presentationMode.wrappedValue.dismiss()
+    dismiss()
   }
   
   var body: some View {
-    NavigationView {
+    NavigationStack {
       Form {
         TextField("Book title", text: $bookEditViewModel.book.title)
         Image(bookEditViewModel.book.largeCoverImageName)
@@ -61,24 +61,24 @@ struct BookEditView: View {
         Toggle("Read", isOn: $bookEditViewModel.book.isRead)
       }
       .navigationTitle(bookEditViewModel.book.title)
-      .navigationBarItems(leading:
-                            Button(action: cancel) {
-                              Text("Cancel")
-                            },
-                          trailing:
-                            Button(action: save) {
-                              Text("Save")
-                            })
+      .toolbar {
+        ToolbarItem(placement: .navigationBarLeading) {
+          Button(action: cancel) {
+            Text("Cancel")
+          }
+        }
+        ToolbarItem(placement: .navigationBarTrailing) {
+          Button(action: save) {
+            Text("Save")
+          }
+        }
+      }
     }
   }
-  
 }
 
 struct BookEditView_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
-      BookEditView(book: .constant(Book.samples[0]))
-    }
-    .preferredColorScheme(.dark)
+    BookEditView(book: .constant(Book.samples[0]))
   }
 }
