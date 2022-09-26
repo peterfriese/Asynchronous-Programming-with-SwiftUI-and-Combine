@@ -62,7 +62,7 @@ struct StickyHeaderListViewDemo: View {
 
 struct StickyHeaderListView_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       StaticListView2Demo()
     }
   }

@@ -79,7 +79,7 @@ struct BasicListForStylingDemo: View {
 
 struct BasicListForStylingDemo_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       BasicListForStylingDemo()
     }
   }

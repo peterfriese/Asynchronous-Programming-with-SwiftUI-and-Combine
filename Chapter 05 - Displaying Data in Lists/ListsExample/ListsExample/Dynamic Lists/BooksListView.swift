@@ -57,7 +57,7 @@ struct BooksListViewDemo: View {
 
 struct BooksListView_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       BooksListViewDemo()
     }
   }

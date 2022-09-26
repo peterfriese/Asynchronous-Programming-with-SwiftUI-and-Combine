@@ -22,7 +22,7 @@ struct GroupedStyleListViewDemo: View {
 
 struct GroupedStyleListView_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       GroupedStyleListViewDemo()
     }
   }

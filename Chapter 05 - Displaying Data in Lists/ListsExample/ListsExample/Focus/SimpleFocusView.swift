@@ -51,7 +51,7 @@ struct SimpleFocusViewDemo: View {
 
 struct SimpleFocusView_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       SimpleFocusViewDemo()
     }
   }

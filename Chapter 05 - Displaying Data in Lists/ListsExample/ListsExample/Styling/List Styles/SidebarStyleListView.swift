@@ -22,7 +22,7 @@ struct SidebarStyleListViewDemo: View {
 
 struct SidebarStyleListView_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       SidebarStyleListViewDemo()
     }
   }

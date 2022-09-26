@@ -22,7 +22,7 @@ struct InsetGroupedStyleListViewDemo: View {
 
 struct InsetGroupedStyleListView_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       InsetGroupedStyleListViewDemo()
     }
   }

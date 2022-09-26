@@ -14,7 +14,11 @@ private class AsyncFetchBooksViewModel: ObservableObject {
   @MainActor
   func fetchData() async {
     fetching = true
-    await Task.sleep(2_000_000_000)
+    do {
+      try await Task.sleep(nanoseconds: 2_000_000_000)
+    }
+    catch {
+    }
     books = Book.samples
     fetching = false
   }
@@ -78,7 +82,7 @@ struct AsyncFetchBooksListViewDemo: View {
 
 struct AsyncFetchBooksListView_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       AsyncFetchBooksListViewDemo()
     }
   }

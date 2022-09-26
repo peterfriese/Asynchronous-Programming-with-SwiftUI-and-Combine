@@ -62,7 +62,7 @@ struct StaticListView2Demo: View {
 
 struct StaticListView2Demo_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       StaticListView2Demo()
     }
   }

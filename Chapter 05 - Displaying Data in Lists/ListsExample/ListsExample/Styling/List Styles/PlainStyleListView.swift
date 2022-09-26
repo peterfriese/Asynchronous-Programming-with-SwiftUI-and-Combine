@@ -22,7 +22,7 @@ struct PlainStyleListViewDemo: View {
 
 struct PlainStyleListView_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       PlainStyleListViewDemo()
     }
   }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MenuScreen: View {
   var body: some View {
-    NavigationView {
+    NavigationSplitView {
       List() {
         Section(header: Text("Static Lists")) {
           NavigationLink(destination: StaticListViewDemo()) {
@@ -112,6 +112,8 @@ struct MenuScreen: View {
       }
       .listStyle(.insetGrouped)
       .navigationTitle("SwiftUI Lists")
+    } detail: {
+      Text("Select an item from the menu.")
     }
   }
 }

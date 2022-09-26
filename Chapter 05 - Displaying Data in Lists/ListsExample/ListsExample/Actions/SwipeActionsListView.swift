@@ -74,7 +74,7 @@ struct SwipeActionsListView: View {
         }
     }
     .sheet(item: $selectedItem) { item in
-      NavigationView {
+      NavigationStack {
         TagsView(item: item)
       }
     }
@@ -112,7 +112,7 @@ struct SwipeActionsListViewDemo: View {
 
 struct SwipeActionsListView_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       SwipeActionsListViewDemo()
     }
   }

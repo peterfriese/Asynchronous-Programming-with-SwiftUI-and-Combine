@@ -64,7 +64,7 @@ struct SwipeToDeleteListViewDemo: View {
 
 struct SwipeToDeleteListView_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       SwipeToDeleteListViewDemo()
     }
   }

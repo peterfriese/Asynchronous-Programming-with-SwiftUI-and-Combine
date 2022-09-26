@@ -75,7 +75,7 @@ struct EditableBooksListViewDemo: View {
 
 struct EditableBooksListView_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       EditableBooksListViewDemo()
     }
   }

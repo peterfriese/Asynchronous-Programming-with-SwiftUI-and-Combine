@@ -135,7 +135,7 @@ struct FocusableListViewDemo: View {
 
 struct FocusableListView_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       FocusableListViewDemo()
     }
   }

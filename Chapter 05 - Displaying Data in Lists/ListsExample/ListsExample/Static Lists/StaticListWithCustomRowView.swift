@@ -68,12 +68,11 @@ struct StaticListWithCustomRowViewDemo: View {
 struct StaticListWithCustomRowViewDemo_Previews: PreviewProvider {
   static var previews: some View {
     Group {
-      NavigationView {
+      NavigationStack {
         StaticListWithCustomRowViewDemo()
           .navigationTitle("List w/ Custom Row")
       }
-      .previewLayout(.device)
-      NavigationView {
+      NavigationStack {
         StaticListWithCustomRowViewDemo()
           .navigationTitle("List w/ Custom Row")
       }

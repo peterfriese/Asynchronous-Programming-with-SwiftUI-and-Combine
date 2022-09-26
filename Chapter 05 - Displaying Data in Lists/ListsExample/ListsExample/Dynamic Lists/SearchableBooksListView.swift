@@ -82,7 +82,7 @@ struct SearchableBooksListViewDemo: View {
 
 struct SearchableBooksListView_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       SearchableBooksListViewDemo()
     }
   }
