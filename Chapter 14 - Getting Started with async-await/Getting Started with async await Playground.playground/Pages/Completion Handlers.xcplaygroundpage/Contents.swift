@@ -3,6 +3,8 @@
  
  # Completion Handlers
  
+ - note: Due to limitations in the current version of the Swift Playgrounds app for macOS, some of the code in this playground will fail to compile. Please open the playground in Xcode 14 on your Mac instead to run the code.
+ 
  This sample shows how to use completion handlers to prepare a sandwich.
  
  The steps to prepare a sandwich are:
