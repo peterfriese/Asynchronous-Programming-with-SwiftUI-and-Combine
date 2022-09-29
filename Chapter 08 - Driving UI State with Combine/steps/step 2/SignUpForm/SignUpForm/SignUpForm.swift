@@ -12,7 +12,7 @@ import Combine
 class SignUpFormViewModel: ObservableObject {
   
   // MARK: Input
-  @Published var username: String = "pete"
+  @Published var username: String = ""
   @Published var password: String = ""
   @Published var passwordConfirmation: String = ""
   
@@ -77,7 +77,7 @@ struct SignUpForm: View {
 // MARK: - Preview
 struct SignUpForm_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       SignUpForm()
         .navigationTitle("Sign up")
     }
