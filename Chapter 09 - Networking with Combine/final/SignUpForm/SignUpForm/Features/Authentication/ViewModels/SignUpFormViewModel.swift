@@ -123,10 +123,11 @@ class SignUpFormViewModel: ObservableObject {
       .map { ($0 == .valid) && $1 }
       .eraseToAnyPublisher()
   }()
-  
-  // remove this later?
+
+  // Check if username is availabel using closure.
+  // This can later be removed, it's just here for demonstation purposes.
   func isUsernameAvailable(username: String) {
-    authenticationService.checkUserNameAvailableOldSchool(userName: username) { result in
+    authenticationService.checkUserNameAvailableWithClosure(userName: username) { result in
       if case let .success(isAvailable) = result {
         print("Available: \(isAvailable)")
       }
