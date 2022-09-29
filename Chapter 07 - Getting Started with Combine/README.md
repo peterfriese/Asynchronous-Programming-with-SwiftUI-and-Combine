@@ -1,6 +1,6 @@
 # Getting Started with Combine
 
-I recommend opening this Xcode Playground with th Playgrounds app for macOS. While it is certainky possible to open it in Xcode, you will have a nicer experience by using the standalone Playgrounds app.
+I recommend opening this Xcode Playground with the Playgrounds app for macOS. While it is possible to open it in Xcode, you will have a nicer experience by using the standalone Playgrounds app.
 
 ![](PlaygroundsApp.png)
 
