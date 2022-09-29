@@ -35,7 +35,6 @@ struct SignUpFormScreen: View {
       } footer: {
         VStack(alignment: .leading) {
           ProgressView(value: viewModel.passwordStrengthValue, total: 1)
-//            .foregroundColor(viewModel.passwordStrengthColor)
             .tint(viewModel.passwordStrengthColor)
             .progressViewStyle(.linear)
           Text(viewModel.passwordMessage)
@@ -57,7 +56,7 @@ struct SignUpFormScreen: View {
 // MARK: - Preview
 struct SignUpForm_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       SignUpFormScreen()
         .navigationTitle("Sign up")
     }

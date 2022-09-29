@@ -49,6 +49,8 @@ struct SignUpScreen: View {
 
 struct SignUpScreen_Previews: PreviewProvider {
   static var previews: some View {
-    SignUpScreen()
+    NavigationStack {
+      SignUpScreen()
+    }
   }
 }
