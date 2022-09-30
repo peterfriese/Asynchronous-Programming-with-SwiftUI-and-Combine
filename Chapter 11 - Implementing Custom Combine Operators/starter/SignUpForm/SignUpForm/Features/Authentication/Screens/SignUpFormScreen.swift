@@ -43,7 +43,7 @@ struct SignUpScreen: View {
     }, message: {
       Text("It looks like you're using an older version of this app. Please update your app.")
     })
-
+    
   }
 }
 
