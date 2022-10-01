@@ -106,7 +106,7 @@ struct WordDetailsView: View {
 
 struct WordDetailsView_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       WordDetailsView(word: "Swift")
     }
   }
