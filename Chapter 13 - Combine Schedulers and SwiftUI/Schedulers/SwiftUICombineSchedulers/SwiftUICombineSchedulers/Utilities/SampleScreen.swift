@@ -44,7 +44,7 @@ Just checking out
 Third line.
 """
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       SampleScreen("Demo",
                    introduction: multiLineIntro
       ) {

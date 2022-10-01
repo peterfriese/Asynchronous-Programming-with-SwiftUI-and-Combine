@@ -88,7 +88,7 @@ struct SchedulerDemoView<T: SchedulerDemoViewModel> : View {
 
 struct SchedulerDemoView_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       SchedulerDemoView("Title", introduction: "What this screen is about.")
     }
   }
