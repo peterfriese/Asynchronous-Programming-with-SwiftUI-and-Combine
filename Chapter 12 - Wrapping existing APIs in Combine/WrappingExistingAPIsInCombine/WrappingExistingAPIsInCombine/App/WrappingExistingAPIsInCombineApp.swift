@@ -27,7 +27,7 @@ struct WrappingExistingAPIsInCombineApp: App {
   
   var body: some Scene {
     WindowGroup {
-      NavigationView {
+      NavigationStack {
         MenuScreen()
       }
     }
