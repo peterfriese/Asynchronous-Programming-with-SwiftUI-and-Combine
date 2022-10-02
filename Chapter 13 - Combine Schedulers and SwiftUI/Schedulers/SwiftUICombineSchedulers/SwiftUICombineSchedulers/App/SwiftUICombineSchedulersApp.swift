@@ -11,7 +11,7 @@ import SwiftUI
 struct SwiftUICombineSchedulersApp: App {
   var body: some Scene {
     WindowGroup {
-      NavigationView {
+      NavigationStack {
         MenuView()
       }
     }

@@ -23,6 +23,11 @@ import Combine
 //
 // To resolve this issue, we only mark the functions that actually make changes to published properties
 // using @MainActor.
+//
+// Change for Swift 5.7 / Xcode 14: This has been fixed, and it's now possible to initialise an ObservableObject
+// that is marked as @MainActor like this:
+//   @StateObject var viewModel = WordDetailsViewModel()
+//
 class LibraryViewModel: ObservableObject {
   @Published var searchText = ""
   @Published var randomWord = "partially"
@@ -70,6 +75,7 @@ class LibraryViewModel: ObservableObject {
         throw WordsAPIError.invalidServerResponse
       }
       let word = try JSONDecoder().decode(Word.self, from: data)
+      print("\(#function) is on main thread: \(Thread.isMainThread)")
       return word
     }
     catch {
@@ -103,7 +109,9 @@ struct LibraryView: View {
     .searchable(text: $viewModel.searchText)
     .autocapitalization(.none)
     .refreshable {
+      print("\(#function) is on main thread BEFORE await: \(Thread.isMainThread)")
       await viewModel.refresh()
+      print("\(#function) is on main thread AFTER await: \(Thread.isMainThread)")
     }
     .listStyle(.insetGrouped)
     .navigationTitle("Library")
@@ -115,7 +123,7 @@ struct LibraryView: View {
       }
     }
     .sheet(isPresented: $isAddNewWordDialogPresented) {
-      NavigationView {
+      NavigationStack {
         AddWordView { newWord in
           viewModel.addFavourite(newWord)
         }
@@ -166,7 +174,7 @@ struct LibraryRowView: View {
 
 struct LibraryView_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       LibraryView()
     }
   }

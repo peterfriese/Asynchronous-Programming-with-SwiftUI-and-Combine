@@ -18,8 +18,9 @@ struct SignUpFormScreen: View {
         TextField("Username", text: $viewModel.username)
           .autocapitalization(.none)
           .disableAutocorrection(true)
-        
-        // remove this later?
+
+        // Check if username is availabel using closure.
+        // This can later be removed, it's just here for demonstation purposes.
         Button("Check if username is available") {
           viewModel.isUsernameAvailable(username: viewModel.username)
         }
@@ -35,7 +36,6 @@ struct SignUpFormScreen: View {
       } footer: {
         VStack(alignment: .leading) {
           ProgressView(value: viewModel.passwordStrengthValue, total: 1)
-//            .foregroundColor(viewModel.passwordStrengthColor)
             .tint(viewModel.passwordStrengthColor)
             .progressViewStyle(.linear)
           Text(viewModel.passwordMessage)
@@ -57,7 +57,7 @@ struct SignUpFormScreen: View {
 // MARK: - Preview
 struct SignUpForm_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       SignUpFormScreen()
         .navigationTitle("Sign up")
     }

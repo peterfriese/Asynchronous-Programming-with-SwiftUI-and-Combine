@@ -42,7 +42,7 @@ struct AddWordView: View {
 
 struct AddWordView_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       AddWordView { word in
         print(word)
       }

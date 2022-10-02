@@ -11,7 +11,7 @@ import SwiftUI
 struct CombiningAsyncApp: App {
   var body: some Scene {
     WindowGroup {
-      NavigationView {
+      NavigationStack {
         MenuView()
           .navigationTitle("Combining Async")
       }

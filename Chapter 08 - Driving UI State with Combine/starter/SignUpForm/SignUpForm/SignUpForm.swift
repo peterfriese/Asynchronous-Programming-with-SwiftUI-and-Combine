@@ -61,7 +61,7 @@ struct SignUpForm: View {
 // MARK: - Preview
 struct SignUpForm_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+    NavigationStack {
       SignUpForm()
         .navigationTitle("Sign up")
     }

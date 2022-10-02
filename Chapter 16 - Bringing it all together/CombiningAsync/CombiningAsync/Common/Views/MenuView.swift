@@ -47,7 +47,7 @@ struct NavigationButton<Label, Destination>: View where Label: View, Destination
     Button(action: { isSheetPresented.toggle()} ) {
       title
         .sheet(isPresented: $isSheetPresented) {
-          NavigationView {
+          NavigationStack {
             destination()
           }
         }

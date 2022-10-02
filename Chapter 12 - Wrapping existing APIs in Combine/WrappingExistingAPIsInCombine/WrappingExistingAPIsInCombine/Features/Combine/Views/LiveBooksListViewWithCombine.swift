@@ -18,7 +18,7 @@ private class BookListViewModel: ObservableObject {
   
   private var db = Firestore.firestore()
   private var cancellable: AnyCancellable?
-  
+
   func subscribe() {
     cancellable = db.collection("books").snapshotPublisher()
       .tryMap { querySnapshot in

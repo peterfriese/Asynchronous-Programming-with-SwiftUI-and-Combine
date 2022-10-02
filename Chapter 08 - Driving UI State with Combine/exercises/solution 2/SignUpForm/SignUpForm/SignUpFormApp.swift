@@ -11,7 +11,7 @@ import SwiftUI
 struct SignUpFormApp: App {
   var body: some Scene {
     WindowGroup {
-      NavigationView {
+      NavigationStack {
         SignUpForm()
           .navigationTitle("Sign up")
       }

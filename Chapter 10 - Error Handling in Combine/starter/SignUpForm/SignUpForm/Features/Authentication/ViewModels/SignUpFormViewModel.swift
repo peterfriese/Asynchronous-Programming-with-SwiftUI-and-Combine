@@ -126,7 +126,7 @@ class SignUpFormViewModel: ObservableObject {
   
   // remove this later?
   func isUsernameAvailable(username: String) {
-    authenticationService.checkUserNameAvailableOldSchool(userName: username) { result in
+    authenticationService.checkUserNameAvailableWithCLosure(userName: username) { result in
       if case let .success(isAvailable) = result {
         print("Available: \(isAvailable)")
       }
