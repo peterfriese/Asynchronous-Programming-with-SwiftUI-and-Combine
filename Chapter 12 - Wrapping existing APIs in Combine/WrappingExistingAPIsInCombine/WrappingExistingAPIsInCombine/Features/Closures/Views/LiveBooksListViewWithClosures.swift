@@ -27,14 +27,14 @@ private class BookListViewModel: ObservableObject {
     .assign(to: &$numberOfBooks)
   }
   
-  public func unsubscribe() {
+  fileprivate func unsubscribe() {
     if listenerRegistration != nil {
       listenerRegistration?.remove()
       listenerRegistration = nil
     }
   }
   
-  func subscribe() {
+  fileprivate func subscribe() {
     if listenerRegistration == nil {
       listenerRegistration = db.collection("books")
         .addSnapshotListener { [weak self] (querySnapshot, error) in

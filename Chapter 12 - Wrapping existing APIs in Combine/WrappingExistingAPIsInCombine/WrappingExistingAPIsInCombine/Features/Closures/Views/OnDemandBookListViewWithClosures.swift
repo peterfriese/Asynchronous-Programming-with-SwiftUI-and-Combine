@@ -16,7 +16,7 @@ private class BookListViewModel: ObservableObject {
   
   private var db = Firestore.firestore()
   
-  func fetchBooks() {
+  fileprivate func fetchBooks() {
     db.collection("books").getDocuments { querySnapshot, error in
       guard let documents = querySnapshot?.documents else {
         return

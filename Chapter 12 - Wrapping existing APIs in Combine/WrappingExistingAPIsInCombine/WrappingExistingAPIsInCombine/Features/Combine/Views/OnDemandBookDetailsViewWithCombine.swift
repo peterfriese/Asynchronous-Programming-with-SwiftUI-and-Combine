@@ -15,7 +15,7 @@ private class BookListViewModel: ObservableObject {
   
   private var db = Firestore.firestore()
   
-  func fetchBook() {
+  fileprivate func fetchBook() {
     db.collection("books").document("hitchhiker").getDocument()
       .tryMap { documentSnapshot in
         try documentSnapshot.data(as: Book.self)

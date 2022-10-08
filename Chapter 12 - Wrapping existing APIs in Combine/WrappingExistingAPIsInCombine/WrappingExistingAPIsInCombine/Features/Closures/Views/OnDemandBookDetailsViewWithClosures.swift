@@ -18,7 +18,7 @@ private class BookListViewModel: ObservableObject {
   
   private var db = Firestore.firestore()
   
-  func fetchBook() {
+  fileprivate func fetchBook() {
     let docRef = db.collection("books").document("hitchhiker")
     
     docRef.getDocument(as: Book.self) { result in

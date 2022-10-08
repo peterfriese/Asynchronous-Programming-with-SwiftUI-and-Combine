@@ -19,7 +19,7 @@ private class BookListViewModel: ObservableObject {
   private var db = Firestore.firestore()
   private var cancellable: AnyCancellable?
 
-  func subscribe() {
+  fileprivate func subscribe() {
     cancellable = db.collection("books").snapshotPublisher()
       .tryMap { querySnapshot in
         try querySnapshot.documents.compactMap { documentSnapshot in
@@ -33,7 +33,7 @@ private class BookListViewModel: ObservableObject {
       .assign(to: \.books, on: self)
   }
   
-  func unsubscribe() {
+  fileprivate func unsubscribe() {
     cancellable?.cancel()
   }
 }
