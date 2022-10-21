@@ -13,7 +13,7 @@ I found a typo in _Asynchronous Programming  with SwiftUI and Combine_.
 * Page: <please insert the page number here>
 
 ### What is wrong
-<Please insert the misspelled word, including some context, so it is easier to find>.
+(Please insert the misspelled word, including some context, so it is easier to find.)
 
 ### What's the correct spelling
-<Plase insert the correctly spelled word>
+(Please insert the correctly spelled word.)
