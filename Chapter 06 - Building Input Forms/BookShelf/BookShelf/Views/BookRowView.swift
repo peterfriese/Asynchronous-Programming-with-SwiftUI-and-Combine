@@ -33,7 +33,7 @@ struct BookRowView: View {
 
 struct BookRowView_Previews: PreviewProvider {
   static var previews: some View {
-    BookRowView(book: .constant(Book.samples[0]))
+    BookRowView(book: .constant(Book.sampleBooks[0]))
       .previewLayout(.sizeThatFits)
   }
 }

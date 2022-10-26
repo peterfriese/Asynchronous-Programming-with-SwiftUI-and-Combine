@@ -8,5 +8,5 @@
 import SwiftUI
 
 class BooksViewModel: ObservableObject {
-  @Published var books: [Book] = Book.samples
+  @Published var books: [Book] = Book.sampleBooks
 }

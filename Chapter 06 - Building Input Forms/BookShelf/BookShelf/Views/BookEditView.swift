@@ -79,6 +79,6 @@ struct BookEditView: View {
 
 struct BookEditView_Previews: PreviewProvider {
   static var previews: some View {
-    BookEditView(book: .constant(Book.samples[0]))
+    BookEditView(book: .constant(Book.sampleBooks[0]))
   }
 }

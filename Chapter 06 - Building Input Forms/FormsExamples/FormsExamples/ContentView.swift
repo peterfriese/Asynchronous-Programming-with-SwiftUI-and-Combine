@@ -10,11 +10,11 @@ import SwiftUI
 struct ContentView: View {
   var body: some View {
     Form {
-      Text("The Hitchhiker's Guide to the Galaxy")
+      Text("Asynchronous Programming with SwiftUI and Combine")
         .font(.headline).foregroundColor(.red)
-      Image("book-cover-hitchhiker")
-      Label("Douglas Adams", systemImage: "person.crop.rectangle")
-      Label("216 pages", systemImage: "book")
+      Image("book-cover-combine")
+      Label("Peter Friese", systemImage: "person.crop.rectangle")
+      Label("451 pages", systemImage: "book")
       Toggle("Read", isOn: .constant(true))
       Button(action: {}) {
         Label("Share", systemImage: "square.and.arrow.up")

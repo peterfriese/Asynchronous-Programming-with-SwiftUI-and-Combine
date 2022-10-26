@@ -37,7 +37,7 @@ struct BookDetailsView: View {
 struct BookDetailsView_Previews: PreviewProvider {
   static var previews: some View {
     NavigationStack {
-      BookDetailsView(book: .constant(Book.samples[3]))
+      BookDetailsView(book: .constant(Book.sampleBooks[3]))
     }
     .preferredColorScheme(.dark)
   }
