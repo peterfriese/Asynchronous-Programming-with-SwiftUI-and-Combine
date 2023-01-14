@@ -33,7 +33,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About
 
-This project shows how to use Swift's Codable API with Firestore.
+This repo contains the code samples that go along with the book.
 
 
 <!-- GETTING STARTED -->
@@ -43,12 +43,10 @@ This project shows how to use Swift's Codable API with Firestore.
 
 To use the code samples, you will need the following:
 * Xcode 14.x
-* (optional) Firebase CLI
 
 ### Installation
 
 1. Install Xcode (see https://developer.apple.com/xcode/)
-2. Install the Firebase CLI (see https://firebase.google.com/docs/cli)
 
 <!-- CONTRIBUTING -->
 ## Contributing
