@@ -20,7 +20,7 @@
   <p align="center">
     Code for my book, Asynchronous Programming with SwiftUI and Combine
     <br />
-    <a href="https://www.amazon.de/-/en/Peter-Friese/dp/1484285719/"><strong>Buy the book »</strong></a>
+    <a href="https://www.amazon.com/Asynchronous-Programming-SwiftUI-Combine-Functional/dp/1484285719/"><strong>Buy the book »</strong></a>
     <br />
     <br />
     <a href="https://github.com/peterfriese/Asynchronous-Programming-with-SwiftUI-and-Combine/issues/new?assignees=peterfriese&labels=typo&template=typo.md&title=%5BTYPO%5D">Report typo</a>
@@ -70,15 +70,15 @@ Distributed under the Apache 2 License. See `LICENSE` for more information.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/peterfriese/Swift-Firestore-Guide.svg?style=flat-square
+[contributors-shield]: https://img.shields.io/github/contributors/peterfriese/Asynchronous-Programming-with-SwiftUI-and-Combine.svg?style=flat-square
 [contributors-url]: https://github.com/peterfriese/Asynchronous-Programming-with-SwiftUI-and-Combine/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/peterfriese/Swift-Firestore-Guide.svg?style=flat-square
+[forks-shield]: https://img.shields.io/github/forks/peterfriese/Asynchronous-Programming-with-SwiftUI-and-Combine.svg?style=flat-square
 [forks-url]: https://github.com/peterfriese/Asynchronous-Programming-with-SwiftUI-and-Combine/network/members
-[stars-shield]: https://img.shields.io/github/stars/peterfriese/Swift-Firestore-Guide.svg?style=flat-square
+[stars-shield]: https://img.shields.io/github/stars/peterfriese/Asynchronous-Programming-with-SwiftUI-and-Combine.svg?style=flat-square
 [stars-url]: https://github.com/peterfriese/Asynchronous-Programming-with-SwiftUI-and-Combine/stargazers
-[issues-shield]: https://img.shields.io/github/issues/peterfriese/Swift-Firestore-Guide.svg?style=flat-square
+[issues-shield]: https://img.shields.io/github/issues/peterfriese/Asynchronous-Programming-with-SwiftUI-and-Combine.svg?style=flat-square
 [issues-url]: https://github.com/peterfriese/Asynchronous-Programming-with-SwiftUI-and-Combine/issues
-[license-shield]: https://img.shields.io/github/license/peterfriese/Swift-Firestore-Guide.svg?style=flat-square
+[license-shield]: https://img.shields.io/github/license/peterfriese/Asynchronous-Programming-with-SwiftUI-and-Combine.svg?style=flat-square
 [license-url]: https://github.com/peterfriese/Asynchronous-Programming-with-SwiftUI-and-Combine/blob/master/LICENSE.txt
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
@@ -92,6 +92,6 @@ Distributed under the Apache 2 License. See `LICENSE` for more information.
 [xcode-url]: https://developer.apple.com/xcode/
 
 [featurerequest-url]: https://github.com/peterfriese/Asynchronous-Programming-with-SwiftUI-and-Combine/issues/new?assignees=&labels=type%3A+feature+request&template=feature_request.md
-[featurerequest-shield]: https://img.shields.io/github/issues/peterfriese/Swift-Firestore-Guide/feature-request?logo=github&style=flat-square
+[featurerequest-shield]: https://img.shields.io/github/issues/peterfriese/Asynchronous-Programming-with-SwiftUI-and-Combine/feature-request?logo=github&style=flat-square
 [discussions-url]: https://github.com/peterfriese/Asynchronous-Programming-with-SwiftUI-and-Combine/discussions
 [discussions-shield]: https://img.shields.io/badge/discussions-brightgreen?logo=github&style=flat-square
